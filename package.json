@@ -4,7 +4,8 @@
   "description": "an project to show my coding skill",
   "main": "index.js",
   "scripts": {
-    "start":"node ./Resume_Demo/bin/www"
+    "start":"node-dev ./Resume_Demo/bin/www",
+    "build-debug":"browserify --debug"
   },
   "keywords": [
     "resume",

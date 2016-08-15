@@ -1,3 +1,5 @@
 {
-  "directory" : "Resume_Demo/public/libs"
+  "directory" : "Resume_Demo/public/libs",
+  "proxy" : "http://proxy1.sg.kodak.com:81",
+  "https-proxy": "http://proxy1.sg.kodak.com:81"
 }

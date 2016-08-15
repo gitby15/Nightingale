@@ -1,7 +1,8 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
 
-gulp.task('default', function() {
-  // 将你的默认的任务代码放在这
-
-  console.log("--- gulp start ---");
+gulp.task('ngMerge', function() {
+ 	gulp.src(['Resume_Demo/public/javascripts/ngApp/*'])
+ 	.pipe(concat('Resume_Demo/public/javascripts/bin/ngApp.js'))
+ 	.pipe(gulp.dest('.'))
 });
