@@ -1,0 +1,5 @@
+#Ignore front-end libraries from bower
+/Resume_Demo/public/libs/
+
+#Ignore node modules from npm
+/node_modules/
