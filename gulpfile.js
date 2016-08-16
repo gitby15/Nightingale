@@ -1,8 +1,11 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var watch = require('gulp-watch');
-var reactify = require('gulp-reactify');
 var browserify = require('browserify');
+var source = require("vinyl-source-stream");
+var babelify = require("babelify");
+var sourcemaps = require('gulp-sourcemaps');
+var reactify = require('reactify');
 
 
 
@@ -14,7 +17,17 @@ var path_output = path_base+'/bin';
 var path_css = path_base+'/stylesheets';
 
 gulp.task('reactify',function(){
-	gulp.src()
+	return browserify(path_ngApp+'/reactMain.js')
+         .transform(reactify)
+         .bundle()
+         .pipe(source(path_output+'/bundle2.js'))
+         .pipe(gulp.dest('.'));
+
+
+
+
+
+
 });
 
 
@@ -27,8 +40,7 @@ gulp.task('ngMerge', function() {
  		//self ng files
  		path_ngApp+'/app.js',
  		path_ngApp+'/**/*.js'])
- 	.pipe(babel())
- 	.pipe(concat(path_output+'/ngApp.js'))
+  	.pipe(concat(path_output+'/ngApp.js'))
  	.pipe(gulp.dest('.'));
 });
 
@@ -55,12 +67,14 @@ gulp.task('bundle',function(){
 gulp.task('watch',function(){
 	gulp.watch(path_ngApp+'/**/*.js',['ngMerge']);
 	gulp.watch(path_css+'/**/*.css',['styles']);
+	gulp.watch(path_js+'/**/*.jsx',['reactify']);
+	gulp.watch(path_ngApp+'/reactMain.js',['reactify']);
 
 });
 
 
 
 gulp.task('default',function(){
-	gulp.start('ngMerge','bundle','styles','watch');
+	gulp.start('ngMerge','bundle','styles','reactify','watch');
 });
 
