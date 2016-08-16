@@ -3,3 +3,6 @@
 
 #Ignore node modules from npm
 /node_modules/
+
+#Ignore gulp output files
+/Resume_Demo/public/bin/

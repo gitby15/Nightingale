@@ -2,12 +2,15 @@
 <html>
 <head>
 	<!--script type="text/javascript" src="libs/angular/angular.js"></script!-->
-	<script type="text/javascript" src="javascripts/bin/ngApp.js"></script>
+	<script type="text/babel" src="bin/ngApp.js"></script>
+	<script type="text/javascript" src="bin/bundle.js"></script>
+	<link rel="stylesheet" type="text/css" href="bin/stylesheets.css">
+	<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
 	<title></title>
 </head>
 <body ng-app="demo">
-	<div ng-controller="ac">
-		{{a}}
+	<div ui-view>
+		
 	</div>
 </body>
 </html>

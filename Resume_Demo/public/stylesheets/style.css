@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+div.bd-red{
+	border:1px red solid;
+}
+div.bd-black{
+	border:1px black solid;
+}
+.row>div{
+	border:1px pink solid;
+	min-height: 30px;
+}
+
+
