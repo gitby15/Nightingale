@@ -1,4 +1,5 @@
 window.app = angular.module('demo',['ui.router'])
+console.log('123');
 
 app.config(function($stateProvider,$urlRouterProvider){
 	$urlRouterProvider.otherwise("/404");
@@ -6,11 +7,7 @@ app.config(function($stateProvider,$urlRouterProvider){
 	$stateProvider.state('main',{
 		url:"",
 		templateUrl:"javascripts/ngApp/main/main.tpl",
-		controller:'mainCtrl',
-		// controller:['$scope',function($scope){
-		// 	$scope.a = "bbb";
-		// }]
-		
+		controller:'mainCtrl'		
 	})
 });
 

@@ -15,16 +15,14 @@ var path_js = path_base+'/javascripts';
 var path_ngApp = path_js+'/ngApp';
 var path_output = path_base+'/bin';
 var path_css = path_base+'/stylesheets';
+var path_react = path_js+'/reactComponents';
 
 gulp.task('reactify',function(){
-	return browserify(path_ngApp+'/reactMain.js')
+	return browserify(path_react+'/reactMain.js')
          .transform(reactify)
          .bundle()
          .pipe(source(path_output+'/bundle2.js'))
          .pipe(gulp.dest('.'));
-
-
-
 
 
 
@@ -57,8 +55,6 @@ gulp.task('bundle',function(){
 	gulp.src([
 		path_libs+'/jquery/dist/jquery.js',
 		path_libs+'/bootstrap/dist/js/bootstrap.js',
-		path_libs+'/react/react.js',
-		path_libs+'/react/react-dom.js'
 		])
 	.pipe(concat(path_output+'/bundle.js'))
 	.pipe(gulp.dest('.'));
