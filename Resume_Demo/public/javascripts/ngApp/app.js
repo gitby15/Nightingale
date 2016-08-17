@@ -1,6 +1,4 @@
-window.app = angular.module('demo',['ui.router'])
-console.log('123');
-
+window.app = angular.module('demo',['ui.router']);
 app.config(function($stateProvider,$urlRouterProvider){
 	$urlRouterProvider.otherwise("/404");
 

@@ -6,6 +6,7 @@ var source = require("vinyl-source-stream");
 var babelify = require("babelify");
 var sourcemaps = require('gulp-sourcemaps');
 var reactify = require('reactify');
+var babel = require('gulp-babel');
 
 
 
@@ -17,13 +18,16 @@ var path_output = path_base+'/bin';
 var path_css = path_base+'/stylesheets';
 var path_react = path_js+'/reactComponents';
 
-gulp.task('reactify',function(){
-	return browserify(path_react+'/reactMain.js')
-         .transform(reactify)
-         .bundle()
-         .pipe(source(path_output+'/bundle2.js'))
-         .pipe(gulp.dest('.'));
 
+
+
+gulp.task('reactify',function(){
+
+	browserify(path_react+'/reactMain.js')
+    .transform(reactify)
+    .bundle()
+    .pipe(source(path_output+'/bundle2.js'))
+    .pipe(gulp.dest('.'));
 
 
 });
@@ -64,7 +68,7 @@ gulp.task('watch',function(){
 	gulp.watch(path_ngApp+'/**/*.js',['ngMerge']);
 	gulp.watch(path_css+'/**/*.css',['styles']);
 	gulp.watch(path_js+'/**/*.jsx',['reactify']);
-	gulp.watch(path_ngApp+'/reactMain.js',['reactify']);
+	gulp.watch(path_react+'/reactMain.js',['reactify']);
 
 });
 

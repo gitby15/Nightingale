@@ -19,4 +19,23 @@ div.bd-black{
 	min-height: 30px;
 }
 
+[data-component="name-widget"]{
+	border:2px black solid;
+
+}
+
+@media screen and (min-width:992px){
+	[data-component="contact-widget"],[data-component="name-widget"]{
+	height: 100px;
+	
+}
+}
+
+
+@media screen and (max-width:992px){
+	[data-component="contact-widget"]{
+	border:2px black solid !important;
+	}
+}
+
 
