@@ -21,15 +21,13 @@ var path_react = path_js+'/reactComponents';
 
 
 
-gulp.task('reactify',function(){
 
+gulp.task('reactify',function(){
 	browserify(path_react+'/reactMain.js')
-    .transform(reactify)
+    .transform(babelify)
     .bundle()
     .pipe(source(path_output+'/bundle2.js'))
     .pipe(gulp.dest('.'));
-
-
 });
 
 
