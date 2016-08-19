@@ -65,8 +65,7 @@ gulp.task('bundle',function(){
 gulp.task('watch',function(){
 	gulp.watch(path_ngApp+'/**/*.js',['ngMerge']);
 	gulp.watch(path_css+'/**/*.css',['styles']);
-	gulp.watch(path_js+'/**/*.jsx',['reactify']);
-	gulp.watch(path_react+'/reactMain.js',['reactify']);
+	gulp.watch(path_react+'/**',['reactify']);
 
 });
 

@@ -1,5 +1,3 @@
-var Name = require("./../nameWidget/nameWidget.jsx");
-
 class ContactWidget extends React.Component{
 
 	constructor(props){
@@ -8,7 +6,10 @@ class ContactWidget extends React.Component{
 			
 		};
 	}
+	static defaultProps = {
+		phoneNumber:13127582620
 
+	}
 	_handleClick = (event) =>{
 		
 		}
@@ -17,16 +18,19 @@ class ContactWidget extends React.Component{
 		let styles = {
 			container:{
 				display:'flex',
-				alignItems:'center',
+				flexDirection:'row',
+				alignItems:'flex-end', 
 				position:'absolute',
-				top:'0px',
-				bottom:'0px',
-				boxOrient:'vertical',
-				boxPack:'end'
+				top:'2px',
+				bottom:'2px',
+				left:'10px',
+				right:'10px',
+				justifyContent:'flex-end'
+				
 				
 			},
 			contact:{
-
+				fontSize:'15px'
 			}
 		}
 
@@ -37,7 +41,7 @@ class ContactWidget extends React.Component{
 					About event binding
 					https://segmentfault.com/q/1010000003763076
 				*/}
-				<div style={styles.contact} onClick={this._handleClick}>12323423456</div>
+				<div style={styles.contact} onClick={this._handleClick}>{this.props.phoneNumber}</div>
 				
 			</div>)
 		

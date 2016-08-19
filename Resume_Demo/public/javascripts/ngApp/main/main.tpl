@@ -10,7 +10,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-md-12 bd-red"></div>
+		<div class="col-xs-12 col-md-12 bd-red">
+			
+			<sliderWidget />
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-3 col-md-3"></div>

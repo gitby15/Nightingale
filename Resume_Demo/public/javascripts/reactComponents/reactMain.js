@@ -2,7 +2,9 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 window.React = React;
 
-var Name = require('./nameWidget/nameWidget.jsx');
+
+var Slider = require('./SliderWidget/Slider.jsx');
+var Name = require('./nameWidget');
 var Contact = require('./contactwidget/contactwidget.jsx');
 
 app.directive('namewidget',function(){
@@ -34,6 +36,20 @@ app.directive('contactwidget',function(){
 						
 			
 		ReactDOM.render(<Contact/>,el[0]);
+		}
+	}
+});
+
+
+app.directive('sliderwidget',function(){
+	return{
+		restrict:'E',
+		scope:false,
+		replace:true,
+		link:function(scope,el,attrs){
+						
+			
+		ReactDOM.render(<Slider />,el[0]);
 		}
 	}
 });
