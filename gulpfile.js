@@ -4,7 +4,6 @@ var watch = require('gulp-watch');
 var browserify = require('browserify');
 var source = require("vinyl-source-stream");
 var babelify = require("babelify");
-var sourcemaps = require('gulp-sourcemaps');
 var reactify = require('reactify');
 var babel = require('gulp-babel');
 
