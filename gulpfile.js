@@ -20,7 +20,6 @@ var path_react = path_js+'/reactComponents';
 
 
 
-
 gulp.task('reactify',function(){
 	browserify(path_react+'/reactMain.js')
     .transform(babelify)
