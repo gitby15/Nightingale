@@ -6,21 +6,25 @@ class SlideItem extends React.Component{
 
 
 
-	static styles = {
-		
-
-	}
-
-
-
-
 	render(){
 
-		let {count, item} = this.props;
+		let {count, item, show} = this.props;
 		let width = 100/this.count+'%'
+		let styles = {
+			li:{
+			listStyleType:'none',
+			flexBasis:width,
+			textAlign:'center',
+
+			},
+			img:{
+				
+			}
+		}
+
 		return (
-			<li>
-				<img src={item.src} alt={item.alt}/>
+			<li style={styles.li}>
+				<img style={styles.img} src={item.src} alt={item.alt}/>
 			</li>
 			);
 
