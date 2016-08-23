@@ -7,7 +7,6 @@ class SlideItem extends React.Component{
 
 
 	render(){
-
 		let {count, item, show} = this.props;
 		let width = 100/this.count+'%'
 		let styles = {
@@ -15,16 +14,22 @@ class SlideItem extends React.Component{
 			listStyleType:'none',
 			flexBasis:width,
 			textAlign:'center',
-
+			height:'100%',
+			width:'100%',
+			position:'relative',
 			},
 			img:{
-				
-			}
+				height:'100%',
+				width:'100%',
+			},
+
+
 		}
 
 		return (
 			<li style={styles.li}>
 				<img style={styles.img} src={item.src} alt={item.alt}/>
+				
 			</li>
 			);
 

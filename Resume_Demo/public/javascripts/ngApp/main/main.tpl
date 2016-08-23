@@ -1,11 +1,11 @@
 <div class='container'>
 
 	<div class="row" >
-		<div class="col-xs-12 col-md-7 bd-red center-block" data-component="name-widget">
+		<div class="col-xs-12 col-md-7" data-component="name-widget">
 			
 			<nameWidget/>
 		</div>
-		<div class="col-xs-7 col-md-5 bd-black" data-component="contact-widget">
+		<div class="col-xs-7 col-md-5" data-component="contact-widget">
 			<contactWidget/>
 		</div>
 	</div>
