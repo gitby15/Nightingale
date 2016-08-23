@@ -45,10 +45,17 @@ gulp.task('ngMerge', function() {
 gulp.task('styles',function(){
 	gulp.src([
 		path_libs+'/bootstrap/dist/css/bootstrap.css',
+
 		path_css+'/style.css'
 		])
-	.pipe(concat(path_output+'/stylesheets.css'))
+	.pipe(concat(path_output+'/css/stylesheets.css'))
 	.pipe(gulp.dest('.'));
+
+	gulp.src([
+		path_libs+'/bootstrap/dist/fonts/*'])
+	.pipe(gulp.dest(path_output+'/fonts'));
+
+
 })
 
 gulp.task('bundle',function(){

@@ -1,6 +1,7 @@
-import react, {Component} from 'react';
+import React, {Component} from 'react';
 import SliderItem from './SliderItem.jsx';
 import SliderDots from './SliderDots.jsx';
+import SliderArrows from './SliderArrows.jsx';
 
 class Slider extends React.Component{
 	constructor(props){
@@ -55,17 +56,19 @@ class Slider extends React.Component{
 	  	});
 
 	  	let dotsNode = <SliderDots turn={this.turn.bind(this)} count={count} currentLocal={this.state.currentLocal} />
-	  	let arrowsNode = <SliderArrows />
+	  	let arrowsNode = <SliderArrows turn={this.turn.bind(this)}/>
 
 
 
 	  	let styles = {
 
-	  		container:{
+	  		wrapper:{
 	  			overflow:'hidden',
 	  			height:'0px',
-	  			paddingBottom:'50%',
-	  			position:'relative'
+	  			paddingBottom:'50%',//2:1
+	  			position:'relative',
+	  			width:'100%',
+	  			margin:'0'
 
 	  		},
 	  		slider:{
@@ -94,12 +97,22 @@ class Slider extends React.Component{
 				minHeight:'20px',
 				width:'100%',
 				background:'linear-gradient(transparent,rgba(0,0,0,0.1) 20%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.5) 65%,rgba(0,0,0,0.66))'
+			},
+			arrows:{
+				position:'absolute',
+				width:'100%',
+				top:'50%',
+				transform:'translateY(-50%)',
+				height:'10%',
+				display:'flex',
+				alignItems:'center',
+
 			}
 	  		
 
 	  	}
 	  	return(
-	  	<div style={styles.container} ref='Container'>
+	  	<div style={styles.wrapper} ref='wrapper'>
 	  		<ul style={styles.slider} ref='Slider'>
 	  			{itemNotes}
 	  		</ul>
@@ -107,6 +120,16 @@ class Slider extends React.Component{
 
 	  		{dotsNode?dotsNode:null}
 	  		</div>
+	  		{
+	  			/*
+
+	  		<div style={styles.arrows}>
+	  			
+	  		{arrowsNode?arrowsNode:null}
+	  		</div>
+
+	  			*/
+	  		}
 	  	</div>
 	  	)
 	  }

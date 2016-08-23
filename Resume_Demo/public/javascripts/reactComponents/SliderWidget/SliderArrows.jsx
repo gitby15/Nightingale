@@ -9,28 +9,49 @@ class SliderArrow extends React.Component{
 
 	handleArrowClick(option){
 		this.props.turn(option);
+		//console.log(option);
 	}
 
 
 	render(){
 		let styles = {
 			wrapper:{
-				position:'relative'
+				position:'absloute',
+				//bottom:'50%',
+				//transform:'translateY(-50%)',
+				display:'flex',
+				justifyContent:'space-between',
+				alignItems:'center',
+				width:'100%',
 			},
 			arrowBase:{
-				border:'solid 2px black'
+				display:'inline-block',
+
+			},
+			arrowLeft:{
+
 			}
 		}
 
+		let iconCssClassName = {
+			left:'glyphicon glyphicon-chevron-left',
+			right:'glyphicon glyphicon-chevron-right'
+		}
+
 		return(
-			<div>
+			<div
+				style={styles.wrapper}>
 				<span
-					onClick={this._handleArrowClick.bind(this,-1)}>
-					left
+					style={[styles.arrowBase]}
+					onClick={this.handleArrowClick.bind(this,-1)}
+					className={iconCssClassName.left}>
+					
 				</span>
 				<span
-				    onClick={this.handleArrowClick.bind(this,1)}>
-				    right
+					style={[styles.arrowBase]}
+				    onClick={this.handleArrowClick.bind(this,1)}
+				    className={iconCssClassName.right}>
+				    
 				</span>
 			</div>
 			)
