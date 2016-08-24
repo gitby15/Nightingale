@@ -1,6 +1,5 @@
 
 class NameWidget extends React.Component{
-
 	constructor(props){
 		super(props);
 		this.state = {
@@ -15,6 +14,7 @@ class NameWidget extends React.Component{
 
 	_handleClick = (event) =>{
 		
+
 	}
 	render(){
 		let styles = {
@@ -25,8 +25,8 @@ class NameWidget extends React.Component{
 				boxOrient:'vertical'
 			},
 			name:{
-				margin:'auto 5%',
-
+				//margin:'auto 5%',
+				
 			}
 		}
 		return (
@@ -44,4 +44,5 @@ class NameWidget extends React.Component{
 
 
 	
+
 module.exports = NameWidget;

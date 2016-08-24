@@ -1,28 +1,28 @@
 <div class='container'>
 
 	<div class="row" >
-		<div class="col-xs-12 col-md-7" data-component="name-widget">
+		<div class="col-xs-12 col-sm-7" data-component="name-widget">
 			
 			<nameWidget/>
 		</div>
-		<div class="col-xs-7 col-md-5" data-component="contact-widget">
+		<div class="col-xs-12 col-sm-5" data-component="contact-widget">
 			<contactWidget/>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-md-12 bd-red">
+		<div class="col-xs-12 col-sm-12 bd-red">
 			
 			<sliderWidget />
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-3 col-md-3"></div>
-		<div class="col-xs-3 col-md-3"></div>
-		<div class="col-xs-3 col-md-3"></div>
-		<div class="col-xs-3 col-md-3"></div>
+		<div class="col-xs-3 col-sm-3"><itemBlockWidget data-item='person'/></div>
+		<div class="col-xs-3 col-sm-3"><itemBlockWidget data-item='projects'/></div>
+		<div class="col-xs-3 col-sm-3"><itemBlockWidget data-item='demo',/></div>
+		<div class="col-xs-3 col-sm-3"><itemBlockWidget data-item='other'/></div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-md-12">			
+		<div class="col-xs-12 col-sm-12">			
 		</div>
 	</div>
 	

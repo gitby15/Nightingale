@@ -20,11 +20,13 @@ class ContactWidget extends React.Component{
 				display:'flex',
 				flexDirection:'row',
 				alignItems:'flex-end', 
-				position:'absolute',
-				top:'2px',
-				bottom:'2px',
-				left:'10px',
-				right:'10px',
+				 position:'absolute',
+				// border:'solid 1px black',
+				 width:'100%',
+				// top:'2px',
+				 bottom:'2px',
+				// left:'10px',
+				// right:'10px',
 				justifyContent:'flex-end'
 				
 				
