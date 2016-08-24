@@ -3,7 +3,9 @@ var ReactDOM = require('react-dom');
 window.React = React;
 
 
-var Slider = require('./SliderWidget/Slider.jsx');
+//var Slider = require('./SliderWidget/Slider.jsx');
+import Slider from './SliderWidget';
+
 var Name = require('./nameWidget');
 var Contact = require('./contactwidget/contactwidget.jsx');
 import ItemBlock from './itemblockwidget';
