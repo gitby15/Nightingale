@@ -1,6 +1,10 @@
 body {
-  padding: 50px;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.row>*{
+	padding:0px;
 }
 
 a {
@@ -19,19 +23,23 @@ div.bd-black{
 	min-height: 30px;
 }
 
+.container{
+	max-width:970px;
+}
+
 [data-component="name-widget"]{
 	border:2px black solid;
 
 }
 
-@media screen and (min-width:992px){
+@media screen and (min-width:768px){
 	[data-component="contact-widget"],[data-component="name-widget"]{
 	height: 100px;
 
 	}
 }
 
-@media screen and (max-width:992px){
+@media screen and (max-width:768px){
 	[data-component="name-widget"]{
 		height: 70px	
 	}

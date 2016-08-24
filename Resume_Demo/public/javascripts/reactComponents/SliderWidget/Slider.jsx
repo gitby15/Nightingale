@@ -13,7 +13,7 @@ class Slider extends React.Component{
 
 	static defaultProps = {
 		speed: 1,
-		delay: 4,
+		delay: 3,
 		pause: true,
 		autoplay: true,
 		dots: true,
@@ -46,7 +46,7 @@ class Slider extends React.Component{
 	}
 
 	componentDidMount(){
-	  	//this.goPlay();
+	  	this.goPlay();
 	}
 
 	  render(){
@@ -56,7 +56,8 @@ class Slider extends React.Component{
 	  	});
 
 	  	let dotsNode = <SliderDots turn={this.turn.bind(this)} count={count} currentLocal={this.state.currentLocal} />
-	  	let arrowsNode = <SliderArrows turn={this.turn.bind(this)}/>
+
+	  	//let arrowsNode = <SliderArrows />
 
 
 
@@ -116,20 +117,14 @@ class Slider extends React.Component{
 	  		<ul style={styles.slider} ref='Slider'>
 	  			{itemNotes}
 	  		</ul>
-	  		<div style={styles.bottom}>
+	  		
+			<div style={styles.bottom}>
 
 	  		{dotsNode?dotsNode:null}
 	  		</div>
-	  		{
-	  			/*
 
-	  		<div style={styles.arrows}>
 	  			
-	  		{arrowsNode?arrowsNode:null}
-	  		</div>
-
-	  			*/
-	  		}
+	  		
 	  	</div>
 	  	)
 	  }

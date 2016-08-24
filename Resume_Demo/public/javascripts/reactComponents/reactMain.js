@@ -8,6 +8,7 @@ import Slider from './SliderWidget';
 
 var Name = require('./nameWidget');
 var Contact = require('./contactwidget/contactwidget.jsx');
+import ItemBlock from './itemblockwidget';
 
 app.directive('namewidget',function(){
 	return{
@@ -52,6 +53,42 @@ app.directive('sliderwidget',function(){
 						
 			
 		ReactDOM.render(<Slider />,el[0]);
+		}
+	}
+});
+
+app.directive('itemblockwidget',function(){
+	return{
+		restrict:'E',
+		scope:false,
+		replace:true,
+		link:function(scope,el,attrs){
+		let item = el[0].dataset.item;
+		let imgPath = {};
+		
+		switch(item){
+			case 'person':
+				imgPath.front = 'images/person.jpg';
+				imgPath.back = 'images/personbg.jpg';
+				break;
+			case 'projects':
+				imgPath.front = 'images/projects.jpg';
+				imgPath.back = 'images/projectsbg.jpg';
+				break;
+			case 'demo':
+				imgPath.front = 'images/demo.jpg';
+				imgPath.back = 'images/demobg.jpg';
+				break;
+			case 'other':
+				imgPath.front = 'images/other.jpg';
+				imgPath.back = 'images/otherbg.jpg';
+				break;
+
+
+		}
+
+
+		ReactDOM.render(<ItemBlock imgPath={imgPath}/>,el[0]);
 		}
 	}
 });
