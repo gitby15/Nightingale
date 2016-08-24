@@ -61,7 +61,7 @@ app.directive('itemblockwidget',function(){
 		scope:false,
 		replace:true,
 		link:function(scope,el,attrs){
-		let item = el[0].dataset.item;
+		let item = el[0].dataset.component;
 		let imgPath = {};
 		
 		switch(item){

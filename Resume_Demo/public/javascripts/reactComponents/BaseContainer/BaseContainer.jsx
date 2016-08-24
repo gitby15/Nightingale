@@ -13,7 +13,7 @@ class BaseContainer extends Component{
 			</div>
 			)
 	}
-
+	
 }
 
 module.exports = BaseContainer;

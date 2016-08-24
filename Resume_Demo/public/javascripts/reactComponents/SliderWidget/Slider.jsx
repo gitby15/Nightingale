@@ -1,4 +1,4 @@
-import react, {Component} from 'react';
+import React, {Component} from 'react';
 import SliderItem from './SliderItem.jsx';
 import SliderDots from './SliderDots.jsx';
 

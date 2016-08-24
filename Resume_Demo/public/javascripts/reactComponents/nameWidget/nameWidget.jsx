@@ -1,5 +1,6 @@
+import React,{Component} from 'react';
 
-class NameWidget extends React.Component{
+class NameWidget extends Component{
 	constructor(props){
 		super(props);
 		this.state = {

@@ -1,3 +1,5 @@
+import React,{Component} from 'react';
+
 class ContactWidget extends React.Component{
 
 	constructor(props){

@@ -1,41 +1,14 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute ,hashHistory} from 'react-router';
+import { Router, Route, browserHistory, Link, IndexRoute ,hashHistory} from 'react-router';
+
+
+
+
+import HomePage from './ReactPages/HomePage/HomePage.jsx';
 
 require('../stylesheets/style.css');
 
-class APP extends Component{
-
-	render(){
-		return (<div>
-				Hello
-				</div>);
-		
-	}
-}
-
-
-class BPP extends Component{
-
-	render(){
-		return (<div>
-				Bello
-				</div>);
-		
-	}
-}
-
-
-
-
-render((
-	<Router history={hashHistory} >
-		<Route path='/' component={APP}>
-
-		</Route>
-		<Route path='/bpp' component={BPP}>
-
-		</Route>
-
-	</Router>
+//
+render((<HomePage/>
 	),document.getElementById('react-app'));
