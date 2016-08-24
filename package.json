@@ -4,7 +4,7 @@
   "description": "an project to show my coding skill",
   "main": "index.js",
   "scripts": {
-    "start": "node-dev ./Resume_Demo/bin/www",
+    "start": "node-dev ./Resume_Demo/bin/www"
   },
   "keywords": [
     "resume",
@@ -22,7 +22,7 @@
     "serve-favicon": "~2.3.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^2.7.0",
+    "react-router": "^2.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.13.2",
