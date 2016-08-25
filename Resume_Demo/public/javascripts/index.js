@@ -5,10 +5,16 @@ import { Router, Route, browserHistory, Link, IndexRoute ,hashHistory} from 'rea
 
 
 
-import HomePage from './ReactPages/HomePage/HomePage.jsx';
+import HomePage from './ReactPages/HomePage';
 
 require('../stylesheets/style.css');
 
 //
-render((<HomePage/>
-	),document.getElementById('react-app'));
+render(
+	
+	<Router history={hashHistory}>
+		<Route path='/' component={HomePage}>
+		</Route>
+	</Router>
+
+	,document.getElementById('react-app'));

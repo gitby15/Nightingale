@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-class NameWidget extends Component{
+class TextWidget extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -9,8 +9,7 @@ class NameWidget extends Component{
 	}
 
 	static defaultProps = {
-						firstName:"Jin",
-						lastName:"Li"
+						text:'Tim Li'
 					};
 
 	_handleClick = (event) =>{
@@ -25,10 +24,7 @@ class NameWidget extends Component{
 				height:'100%',
 				boxOrient:'vertical'
 			},
-			name:{
-				//margin:'auto 5%',
-				
-			}
+			
 		}
 		return (
 
@@ -37,7 +33,7 @@ class NameWidget extends Component{
 					About event binding
 					https://segmentfault.com/q/1010000003763076
 				*/}
-				<h1 style={styles.name} onClick={this._handleClick}>{this.props.lastName} {this.props.firstName}</h1>
+				<h1 onClick={this._handleClick}>{this.props.text}</h1>
 				
 			</div>)
 	}
@@ -46,4 +42,4 @@ class NameWidget extends Component{
 
 	
 
-module.exports = NameWidget;
+module.exports = TextWidget;

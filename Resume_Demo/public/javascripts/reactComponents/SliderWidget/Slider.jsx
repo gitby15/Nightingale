@@ -113,7 +113,9 @@ class Slider extends React.Component{
 
 	  	}
 	  	return(
-	  	<div style={styles.wrapper} ref='wrapper'>
+	  	<div style={styles.wrapper} ref='wrapper'
+	  		 onMouseOver={this.pausePlay.bind(this)}
+	  		 onMouseOut={this.goPlay.bind(this)}>
 	  		<ul style={styles.slider} ref='Slider'>
 	  			{itemNotes}
 	  		</ul>

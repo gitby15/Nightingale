@@ -1,26 +1,37 @@
-import {Grid, Row, Col} from 'react-bootstrap';
 import React, {Component} from 'react';
+import Radium, {Style} from 'radium';
 
-import Name from '../../ReactComponents/NameWidget';
 import Contact from '../../ReactComponents/ContactWidget';
 import Slider from '../../ReactComponents/SliderWidget';
 import ItemBlock from '../../ReactComponents/ItemBlockWidget';
 
-//
-class HomePage extends Component{
 
+
+import Banner from './Banner/Banner.jsx';
+
+/* Import React-Bootstrap Components*/
+import {Grid, Row, Col} from 'react-bootstrap';
+
+
+class HomePage extends Component{
 
 	render(){
 		return (
 			<Grid>
-				<Row >
-					<Col xs={12} sm={7} data-component="name-widget">
-						<Name/>
-					</Col>
-					<Col xs={12} sm={5} data-component="contact-widget">
-						<Contact />
-					</Col>
-				</Row>
+				{/*
+					<Row >
+						<Col xs={12} sm={7} data-component="name-widget">
+							<Name/>
+						</Col>
+						<Col xs={12} sm={5} data-component="contact-widget">
+							<Contact />
+						</Col>
+					</Row>
+
+				*/}
+
+					<Banner />
+				
 				<Row >
 					<Col xs={12} sm={12}>
 						
@@ -59,5 +70,5 @@ class HomePage extends Component{
 
 }
 
-module.exports = HomePage;
+module.exports = Radium(HomePage);
 

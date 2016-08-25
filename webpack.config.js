@@ -14,10 +14,10 @@ var path_react = path_js+'/reactComponents';
 module.exports = {
 
 	plugins:[ commonsPlugin,new ExtractTextPlugin("[name].css") ],
-
+	devtool: "source-map",
 	entry:{
 		index:path_js+'/index.js',
-		bootstrap:path_libs+'/bootstrap/dist/css/bootstrap.min.css',
+		bootstrap:path_libs+'/bootstrap/dist/css/bootstrap.css',
 	},
 	output:{
 		path:path_output,
@@ -27,7 +27,13 @@ module.exports = {
 		loaders:[
 			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-2' },
 			{ test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-2' },
-			{ test: /\.css$/, loader:ExtractTextPlugin.extract("style-loader", "css-loader")},
+			{ test: /\.css$/, loader: ExtractTextPlugin.extract(
+				"style-loader",
+				"css-loader?sourceMap",
+				{
+					publicPath: "../"
+				}
+			)},
 			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
 			
 			{test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff"},
