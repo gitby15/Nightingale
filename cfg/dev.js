@@ -16,7 +16,7 @@ let config = Object.assign({}, baseConfig, {
     'webpack/hot/only-dev-server',
     'expose?$!expose?jQuery!jquery',
     'bootstrap-webpack',
-    './src/frontend/index'
+    './src/index'
 
   ],
   cache: true,
