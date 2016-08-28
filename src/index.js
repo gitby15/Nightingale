@@ -1,20 +1,8 @@
-import React, {Component} from 'react';
-import { render } from 'react-dom';
-import { Router, Route, browserHistory, Link, IndexRoute ,hashHistory} from 'react-router';
+import 'core-js/fn/object/assign';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './pages/Home';
 
-
-
-
-import HomePage from './pages/HomePage';
-
-require('./styles/style.css');
-
-//
-render(
-	
-	<Router history={hashHistory}>
-		<Route path='/' component={HomePage}>
-		</Route>
-	</Router>
-
-	,document.getElementById('react-app'));
+// Render the main component into the dom
+console.log('11111111111');
+ReactDOM.render(<Home />, document.getElementById('app'));

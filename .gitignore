@@ -1,4 +1,4 @@
-#Logs
+# Logs
 logs
 *.log
 
@@ -16,7 +16,6 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
-
 # node-waf configuration
 .lock-wscript
 
@@ -27,12 +26,5 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
-
-#Ignore front-end libraries from Bower
-/Resume_Demo/public/libs/
-
-#Ignore node modules from npm
-/node_modules/
-
-#Ignore gulp output files
-/Resume_Demo/public/bin/
+# Bower
+bower_components/
