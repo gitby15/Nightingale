@@ -1,27 +1,25 @@
 import React, {Component} from 'react';
 import styles from './RibbonItem.css';
 import {Link} from 'react-router';
-import img from './img/ribbonb.png';
-//let img = require('./img/ribbonb.png');
+
 
 class RibbonItem extends Component{
 	
 	static defaultProps = {
-		text:'download'
+		text:'Text'
 	}
 
 	render(){
-		console.log(img);
-		let InlineStyle = {
-			item:{
-				backgroundImage:img,
-				border:'solid 2px black'
-			}
-		}
+		
+		
 		return(
-			<Link to='#' className={styles.item} style={InlineStyle.item}>
-				
-				{this.props.text}
+			<Link to='#' className={styles.item}>
+				<img src={this.props.img}/>
+				<div className={styles.descWrapper}>
+					<div className={styles.text}>
+						{this.props.text}
+					</div>
+				</div>
 				
 			</Link>
 			)

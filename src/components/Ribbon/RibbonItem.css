@@ -1,3 +1,22 @@
 .item{
+	position: relative;
+	flex-grow: 0;
+	flex-shrink: 1;
 	
+}
+
+.descWrapper{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-40%);
+	color:#fff;
+}
+
+
+.text{
+	color:#fff;
+	text-align: center;
+	font-weight: 700;
+	font-size: 19px;
 }

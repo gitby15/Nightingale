@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 
-import {Grid, Row, Col} from 'react-bootstrap';
 import styles from './Banner.css';
 /* Import React-Bootstrap Components*/
 
@@ -19,7 +18,7 @@ class Banner extends Component{
 
 		return(
 			
-			<Row>
+			
 			<article className={styles.container}>
 				<div className={styles.ribbonWrapper}>
 					<Ribbon />
@@ -30,7 +29,7 @@ class Banner extends Component{
 					
 			</article>
 			
-			</Row>
+			
 
 			);
 	}

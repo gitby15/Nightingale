@@ -15,7 +15,7 @@ export default class ItemBlock extends Component{
 
 	onClick(event){
 
-		window.location.href = '#person';
+		//window.location.href = '#person';
 	}
 	
 
