@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class CarouselItem extends React.Component{
+class CarouselItem extends Component{
 	constructor(props){
 		super(props);
 		

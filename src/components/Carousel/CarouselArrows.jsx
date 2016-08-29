@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 
 
-class CarouselArrow extends React.Component{
+class CarouselArrow extends Component{
 	constructor(props){
 		super(props);
 	}
