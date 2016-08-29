@@ -5,13 +5,12 @@ let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 
-
-
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = Object.assign({}, baseConfig, {
   entry: [
+<<<<<<< HEAD
     devServer:'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
     hotServer:'webpack/hot/only-dev-server',
     jquery:'expose?$!expose?jQuery!jquery',
