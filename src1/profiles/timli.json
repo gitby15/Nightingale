@@ -1,8 +1,0 @@
-{
-	"name":"Tim Li",
-	"age":23,
-	"projects":[{"name":"project1"},
-		{"name":"project2"},
-		{"name":"project3"}]
-
-}
