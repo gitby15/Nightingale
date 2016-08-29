@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import Radium from 'radium';
 
 
-class CarouselDot extends React.Component{
+class CarouselDot extends Component{
 	constructor(props){
 		super(props);
 	}
 
 
 	handleDotClick(i){
-		console.log('111');
+		
 		let option = i - this.props.currentLocal;
 		this.props.turn(option);
 	}
@@ -27,7 +27,7 @@ class CarouselDot extends React.Component{
 				transform:'translate(-50%,-50%)',
 				display:'flex',
 				alignItems:'center',
-				justifyContent:'space-between',
+				justifyContent:'space-between'
 
 			},
 			dotsWarrers:{
@@ -35,7 +35,7 @@ class CarouselDot extends React.Component{
 				height:'13px',
 				display:'flex',
 				justifyContent:'center',
-				alignItems:'center',
+				alignItems:'center'
 
 			},
 			dotsBase:{
@@ -46,14 +46,14 @@ class CarouselDot extends React.Component{
 				opacity:'1',
 				':hover':{
 					border:'solid 2px #fff',
-					backgroundColor:'#50ccfb',
+					backgroundColor:'#50ccfb'
 					
-				},
+				}
 			},
 			dotsCrnt:{
 				transition:'1s',
 				transform:'rotate(360deg)',
-				borderRadius:'0',
+				borderRadius:'0'
 			}
 
 		}

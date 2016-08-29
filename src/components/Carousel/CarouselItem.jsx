@@ -9,7 +9,7 @@ class CarouselItem extends Component{
 
 
 	render(){
-		let {count, item, show} = this.props;
+		let {item, show} = this.props;
 		let width = 100/this.count+'%'
 		let styles = {
 			li:{
@@ -18,11 +18,11 @@ class CarouselItem extends Component{
 			textAlign:'center',
 			height:'100%',
 			width:'100%',
-			position:'relative',
+			position:'relative'
 			},
 			img:{
 				height:'100%',
-				width:'100%',
+				width:'100%'
 			},
 
 

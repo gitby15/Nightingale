@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import CarouselItem from './CarouselItem.jsx';
 import CarouselDots from './CarouselDots.jsx';
-import CarouselArrows from './CarouselArrows.jsx';
+//import CarouselArrows from './CarouselArrows.jsx';
 
-class Carousel extends React.Component{
+class Carousel extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -57,7 +57,7 @@ class Carousel extends React.Component{
 
 	  	let dotsNode = <CarouselDots turn={this.turn.bind(this)} count={count} currentLocal={this.state.currentLocal} />
 
-	  	//let arrowsNode = <CarouselArrows />
+	  //	let arrowsNode = <CarouselArrows />
 
 
 
@@ -87,7 +87,7 @@ class Carousel extends React.Component{
 	  		left: -100 * this.state.currentLocal +'%',
 	  		width:this.props.items.length*100 +'%',
 	  		height:'100%',
-	  		transition:'0.5s',
+	  		transition:'0.5s'
 	  		
 	  		},
 	  		bottom:{
@@ -106,7 +106,7 @@ class Carousel extends React.Component{
 				transform:'translateY(-50%)',
 				height:'10%',
 				display:'flex',
-				alignItems:'center',
+				alignItems:'center'
 
 			}
 	  		

@@ -3,7 +3,7 @@ import Radium,{StyleRoot} from 'radium';
 
 
 
-class ItemBlock extends React.Component{
+export default class ItemBlock extends Component{
 
 
 	constructor(props){
@@ -14,7 +14,7 @@ class ItemBlock extends React.Component{
 
 
 	onClick(event){
-		console.log('222');
+
 		window.location.href = '#person';
 	}
 	

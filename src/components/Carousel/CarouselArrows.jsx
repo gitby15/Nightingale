@@ -22,10 +22,10 @@ class CarouselArrow extends Component{
 				display:'flex',
 				justifyContent:'space-between',
 				alignItems:'center',
-				width:'100%',
+				width:'100%'
 			},
 			arrowBase:{
-				display:'inline-block',
+				display:'inline-block'
 
 			},
 			arrowLeft:{
