@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDom from 'react-dom';
 import Radium, {StyleRoot} from 'radium';
 import {Link} from 'react-router';
 import {Grid, Row, Col} from 'react-bootstrap';
@@ -17,15 +18,26 @@ class BlockList extends Component{
 
 
 
-	handleClick(i){
+	handleClick(i,target){
 
 		// setTimeout(()=>{
-		// 	window.location.href='#/person';
+		// 	
 		// },1400);
-		// this.setState({
-		// 	anim:styles.begin
-		// });
-		console.log(i);
+		console.log('click');
+		let dom = ReactDom.findDOMNode(i);
+		let fun = ()=>{
+			dom.removeEventListener('animationend',fun);
+			window.location.href='#/'+target;
+				i.setState({
+				anim:null
+			});
+		}
+		dom.addEventListener('animationend',fun);
+
+		i.setState({
+			anim:styles.begin
+		});
+		console.log(dom.eventListener);
 
 	}
 
@@ -42,22 +54,28 @@ class BlockList extends Component{
 						
 						<ItemBlock imgPath={{front:'images/person.jpg',
 											back :'images/personbg.jpg'}}
-									
-									onClick={this.handleClick.bind(this,this)}
+									ref='person'
+									onClick={this.handleClick.bind(this,this,'person')}
 									/>
 						
 					</Col>
 					<Col xs={3} sm={3}>
 						<ItemBlock imgPath={{front:'images/projects.jpg',
-											back :'images/projectsbg.jpg'}}/>
+											back :'images/projectsbg.jpg'}}
+									ref={'project'}
+									onClick={this.handleClick.bind(this,this,'project')	}	/>
 					</Col>
 					<Col xs={3} sm={3}>
 						<ItemBlock imgPath={{front:'images/demo.jpg',
-											back :'images/demobg.jpg'}}/>
+											back :'images/demobg.jpg'}}
+									ref='demo'
+									onClick={this.handleClick.bind(this,this,'demo')}/>
 					</Col>
 					<Col xs={3} sm={3}>
 						<ItemBlock imgPath={{front:'images/other.jpg',
-											back :'images/otherbg.jpg'}}/>
+											back :'images/otherbg.jpg'}}
+									ref='other'
+									onClick={this.handleClick.bind(this,this,'other')}/>
 					</Col>
 				</Row>
 

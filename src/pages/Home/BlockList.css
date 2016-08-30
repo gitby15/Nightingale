@@ -1,8 +1,10 @@
 .begin{
 	background-color: #fff;
 	z-index: 2;
-	animation:route 1.5s ease-in-out;
+	animation:route 1s ease-in;
 	animation-play-state: run;
+	pointer-events: none;
+
 	/*animation-fill-mode: forwards;*/
 	
 }
@@ -16,7 +18,7 @@
 	 }
 	 
 	 100%{
-	 	transform:translate(150%,-130%) scale(4,4) rotateY(180deg);
-
+	 	transform:translate(150%,-130%) scale(3.7,3.7) rotateY(180deg);
+	 	
 	 }
 }

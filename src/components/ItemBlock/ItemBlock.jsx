@@ -11,6 +11,9 @@ export default class ItemBlock extends Component{
 
 	}
 
+	static defaultProps = {
+		name : 'ItemBlock'
+	}
 
 
 	onClick(event){
