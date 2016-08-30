@@ -1,15 +1,18 @@
-*{
+:global(*){
 	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
 
 :global(.row>div){
 	padding:0px;
-	border:1px pink solid;
+	/*border:1px pink solid;*/
 	min-height: 30px;
 }
 
-
+body{
+	background: url('../images/background.png') repeat;
+	padding-top: 30px;
+}
 
 
 
@@ -21,6 +24,7 @@ a {
 
 :global(.container){
 	max-width:970px;
+	
 }
 
 

@@ -6,6 +6,7 @@ class Name extends Component{
 	static defaultProps = {
 		firstName:'Tim',
 		lastName:'Li',
+		language:'english',
 		title:'Software Developer',
 
 	}
@@ -13,12 +14,12 @@ class Name extends Component{
 	render(){
 		let {language,firstName,lastName} = this.props;
 		let wordFirst,workSecond;
-		if(language = "chinese"){
+		if(language == "chinese"){
 			wordFirst = lastName;
 			workSecond = firstName;
-		}else if(language = "english"){
+		}else if(language == "english"){
 			wordFirst = firstName;
-			workSecond = lasttName;
+			workSecond = lastName;
 		}
 
 		return(

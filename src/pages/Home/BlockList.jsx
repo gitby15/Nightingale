@@ -2,12 +2,32 @@ import React, {Component} from 'react';
 import Radium, {StyleRoot} from 'radium';
 import {Link} from 'react-router';
 import {Grid, Row, Col} from 'react-bootstrap';
-//import styles from './Banner.css';
+import styles from './BlockList.css';
 
 import ItemBlock from './../../components/ItemBlock';
 
 class BlockList extends Component{
+	constructor(props){
+		super(props);
+		this.state={
+			anim:''
+		}
 
+	}
+
+
+
+	handleClick(i){
+
+		// setTimeout(()=>{
+		// 	window.location.href='#/person';
+		// },1400);
+		// this.setState({
+		// 	anim:styles.begin
+		// });
+		console.log(i);
+
+	}
 
 	render(){
 
@@ -17,12 +37,15 @@ class BlockList extends Component{
 
 
 		return(
-				<Row>
-					<Col xs={3} sm={3}>
-						<Link to='/person'>
-							<ItemBlock imgPath={{front:'images/person.jpg',
-												back :'images/personbg.jpg'}}/>
-						</Link>
+				<Row ref='container'>
+					<Col xs={3} sm={3} className={this.state.anim} >
+						
+						<ItemBlock imgPath={{front:'images/person.jpg',
+											back :'images/personbg.jpg'}}
+									
+									onClick={this.handleClick.bind(this,this)}
+									/>
+						
 					</Col>
 					<Col xs={3} sm={3}>
 						<ItemBlock imgPath={{front:'images/projects.jpg',

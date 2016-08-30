@@ -1,8 +1,11 @@
 //import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import {Router,Route,hashHistory} from 'react-router';
+
+import {Provider} from 'react-redux';
+import {creteStore} from 'redux';
+
 //require('expose?$!expose?jQuery!jquery');
 //require("bootstrap-webpack");
 require('./styles/style.css');
@@ -10,6 +13,10 @@ require('./styles/style.css');
 
 import Home from './pages/Home';
 import Person from './pages/Person';
+
+
+
+
 
 // Render the main component into the dom
 class Tes extends React.Component{

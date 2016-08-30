@@ -20,9 +20,9 @@ export default class ItemBlock extends Component{
 	
 
 	render(){
-		let imgPath = this.props.imgPath;
+		let {imgPath,className} = this.props;
 		//console.log(this.props);
-
+		
 		
 
 		let styles = {
@@ -62,8 +62,7 @@ export default class ItemBlock extends Component{
 
 
 		return(
-			<div style={styles.wrapper}
-				 >
+			<div style={styles.wrapper} className={className} onClick={this.props.onClick}>
 				<StyleRoot>
 					<div
 						style={styles.itemBase}

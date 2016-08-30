@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Radium, {Style} from 'radium';
 
 
-import Banner from '../../layouts/Banner';
+import Banner from '../Home/Banner.jsx';
 
 import {Grid, Row, Col} from 'react-bootstrap';
 

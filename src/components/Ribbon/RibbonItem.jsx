@@ -14,7 +14,7 @@ class RibbonItem extends Component{
 		
 		return(
 			<Link to='#' className={styles.item}>
-				<img src={this.props.img}/>
+				<img src={this.props.img} className={styles.img}/>
 				<div className={styles.descWrapper}>
 					<div className={styles.text}>
 						{this.props.text}

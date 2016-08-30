@@ -16,19 +16,18 @@ class Banner extends Component{
 
 	render(){
 		
-
 		return(
 			
 			<Row>
-			<article className={styles.container}>
-				<div className={styles.ribbonWrapper}>
-					<Ribbon />
-				</div>
-				<div className={styles.infoWrapper}>
-					<Name />
-				</div>
-					
-			</article>
+				<article className={styles.container}>
+					<div className={styles.ribbonWrapper}>
+						<Ribbon />
+					</div>
+					<div className={styles.infoWrapper}>
+						<Name />
+					</div>
+						
+				</article>
 			
 			</Row>
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Radium, {Style} from 'radium';
 
 import ItemBlock from './../../components/ItemBlock';
-
+import styles from './Home.css';
  
 //Layouts
 import Banner from './Banner.jsx';
@@ -21,7 +21,7 @@ class Home extends Component{
 
 
 		return (
-			<Grid>
+			<Grid className={styles.container}>
 				
 				<Banner />				
 				<CarouselBody />

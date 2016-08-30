@@ -1,11 +1,12 @@
 
 .container{
-	border:1px solid pink;
-	padding-bottom:50px;
+	/*border:1px solid pink;*/
 	
+	background: url('./img/light.png');
 	display: flex;
 	position: relative;
 	flex-direction:column;
+
 }
 .ribbonWrapper{
 	
@@ -23,6 +24,7 @@
 .infoWrapper{
 	/*border:solid 2px blue;*/
 	width:50%;
+	margin-left:15px;
 }
 
 @media screen and (max-width: 480px){
@@ -30,6 +32,10 @@
 			align-self:center;
 			flex-grow:0;
 			flex-shrink:1;
+	}
+	.container{
+		
+		padding-bottom:10px;
 	}
 	
 }
@@ -41,6 +47,7 @@
 	}
 	.container{
 		padding-top: 50px;
+		padding-bottom:50px;
 	}
 	
 }

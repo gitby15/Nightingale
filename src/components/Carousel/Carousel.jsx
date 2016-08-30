@@ -49,6 +49,10 @@ class Carousel extends Component{
 	  	this.goPlay();
 	}
 
+	componentWillUnmount(){
+		this.pausePlay();
+	}
+
 	  render(){
 	  	let count = this.props.items.length;
 	  	let itemNotes = this.props.items.map((item,idx)=>{
