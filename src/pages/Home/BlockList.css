@@ -1,0 +1,22 @@
+.begin{
+	background-color: #fff;
+	z-index: 2;
+	animation:route 1.5s ease-in-out;
+	animation-play-state: run;
+	/*animation-fill-mode: forwards;*/
+	
+}
+
+@keyframes route{
+	 0%{
+	 	
+	 }
+	 40%{
+	 	transform:translate(150%,-130%) rotateY(1deg);
+	 }
+	 
+	 100%{
+	 	transform:translate(150%,-130%) scale(4,4) rotateY(180deg);
+
+	 }
+}

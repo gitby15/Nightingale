@@ -1,48 +1,32 @@
-body {
-  
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:global(*){
+	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
-.row>div{
+
+:global(.row>div){
 	padding:0px;
+	/*border:1px pink solid;*/
+	min-height: 30px;
 }
+
+body{
+	background: url('../images/background.png') repeat;
+	padding-top: 30px;
+}
+
+
 
 a {
   color: #00B7FF;
 }
 
 
-div.bd-red{
-	border:1px red solid;
-}
-div.bd-black{
-	border:1px black solid;
-}
-.row>div{
-	border:1px pink solid;
-	min-height: 30px;
-}
 
-.container{
+:global(.container){
 	max-width:970px;
-}
-
-
-@media screen and (min-width:768px){
-	[data-component="contact-widget"],[data-component="name-widget"]{
-	height: 100px;
-
-	}
-}
-
-@media screen and (max-width:768px){
-	[data-component="name-widget"]{
-		height: 70px	
-	}
-	[data-component="contact-widget"]{
 	
-		
-	}
 }
+
+
 
 

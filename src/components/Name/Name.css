@@ -1,0 +1,28 @@
+.container{
+	font-family: 'Droid Serif', georgia, times, serif;
+}
+
+.name{
+	margin:0px;
+	margin-bottom: 0px;
+	font-size: 50px;
+	color: #00A0C6;
+}
+
+.title{
+	margin-left:10px;
+	color:#666;
+
+}
+
+@media screen and (max-width: 480px){
+	.name{
+		font-size: 40px;
+	}
+	
+	
+}
+@media screen and (min-width: 481px){
+	
+
+}
