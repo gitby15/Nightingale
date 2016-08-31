@@ -26,7 +26,7 @@ function getDefaultModules() {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules'
+        loader: 'style-loader!css-loader?modules!autoprefixer-loader'
       },
       {
         test: /\.sass/,

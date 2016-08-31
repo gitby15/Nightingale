@@ -8,6 +8,7 @@ export default class ItemBlock extends Component{
 
 	constructor(props){
 		super(props);
+		
 
 	}
 
@@ -63,9 +64,9 @@ export default class ItemBlock extends Component{
 			}
 		}
 
-
 		return(
-			<div style={styles.wrapper} className={className} onClick={this.props.onClick}>
+			<div  className={className} >
+				<div style={styles.wrapper}onClick={this.props.onClick}>
 				<StyleRoot>
 					<div
 						style={styles.itemBase}
@@ -74,7 +75,9 @@ export default class ItemBlock extends Component{
 
 						</div>
 				</StyleRoot>
+				</div>
 			</div>
+			
 			)
 	}
 }

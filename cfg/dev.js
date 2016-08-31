@@ -15,6 +15,7 @@ let config = Object.assign({}, baseConfig, {
     'webpack/hot/only-dev-server',
     'expose?$!expose?jQuery!jquery',
     'bootstrap-webpack',
+   // 'babel-polyfill',
     './src/index'
 
   ],

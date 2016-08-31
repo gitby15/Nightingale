@@ -5,7 +5,7 @@ import ItemBlock from './../../components/ItemBlock';
 import styles from './Home.css';
  
 //Layouts
-import Banner from './Banner.jsx';
+import Banner from '../../layouts/Banner';
 import CarouselBody from './CarouselBody';
 import BlockList from './BlockList.jsx';
 import CanvasPanel from './CanvasPanel.jsx';
