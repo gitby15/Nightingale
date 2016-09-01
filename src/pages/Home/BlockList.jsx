@@ -6,6 +6,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import styles from './BlockList.css';
 
 import ItemBlock from './../../components/ItemBlock';
+import RowCard from '../../layouts/RowCard';
 
 class BlockList extends Component{
 	constructor(props){
@@ -63,37 +64,29 @@ class BlockList extends Component{
 
 
 		return(
-				<Row ref='container'>
-					<Col xs={3} sm={3}>
-						
+				<RowCard>
 						<ItemBlock imgPath={{front:'images/person.jpg',
 											back :'images/personbg.jpg'}}
 									ref='person'
-									
 									onClick={this.handleClick.bind(this,'person')}
 									/>
 						
-					</Col>
-					<Col xs={3} sm={3}>
+					
 						<ItemBlock imgPath={{front:'images/projects.jpg',
 											back :'images/projectsbg.jpg'}}
 									ref='project'
-									key='321'
 									onClick={this.handleClick.bind(this,'project')}/>
-					</Col>
-					<Col xs={3} sm={3}>
+					
 						<ItemBlock imgPath={{front:'images/demo.jpg',
 											back :'images/demobg.jpg'}}
 									ref='demo'
 									onClick={this.handleClick.bind(this,'demo')}/>
-					</Col>
-					<Col xs={3} sm={3}>
+					
 						<ItemBlock imgPath={{front:'images/other.jpg',
 											back :'images/otherbg.jpg'}}
 									ref='other'
 									onClick={this.handleClick.bind(this,'other')}/>
-					</Col>
-				</Row>
+				</RowCard>
 
 			);
 	}

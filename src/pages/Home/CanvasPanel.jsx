@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Radium, {StyleRoot} from 'radium';
 
-import {Grid, Row, Col} from 'react-bootstrap';
-//import styles from './Banner.css';
+import RaceGame from '../../components/RaceGame';
+
+
 
 
 class CanvasPanel extends Component{
@@ -10,12 +10,7 @@ class CanvasPanel extends Component{
 
 	render(){
 		return(
-			<Row>
-					<Col xs={12} sm={12}>
-						CanvasPanel
-					</Col>
-					
-				</Row>
+			<RaceGame />
 			);
 	}
 }

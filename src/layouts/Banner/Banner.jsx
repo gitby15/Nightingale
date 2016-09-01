@@ -17,10 +17,23 @@ class Banner extends Component{
 
 	static classArr(){
 		let str = '';
-		for(let item of arguments){
-			if('string' == typeof(item))
-		  		{str += ' '+item;}
+		/**
+			for of function in sougou broswer doesn't work, but it is
+			fine in chrome, I think this is a issue with babel.
+
+		
+			for(let item of args){
+				console.log(item);
+				if('string' == typeof(item))
+			  		{str += ' '+item;}
+			}
+		*/
+
+		for(let idx=0; idx< arguments.length; idx++){
+			if('string' == typeof(arguments[idx]))
+		  		{str += ' '+arguments[idx];}
 		}
+		
 		return str;
 	}
 
@@ -28,8 +41,7 @@ class Banner extends Component{
 	render(){
 		
 		return(
-			
-			<Row>
+			<div className={this.props.className}>
 				<div className={Banner.classArr(styles.container,styles.weight)}>
 					<div className={styles.ribbonWrapper}>
 						<Ribbon />
@@ -39,8 +51,7 @@ class Banner extends Component{
 					</div>
 						
 				</div>
-			
-			</Row>
+			</div>
 
 			);
 	}

@@ -1,8 +1,11 @@
 
 .container.weight{
-	/*border:1px solid pink;*/
+	/*
+		border:1px solid pink;
+		background: url('./img/light.png');
+	*/
 	
-	background: url('./img/light.png');
+	background-color: #fff;
 	display: flex;
 	position: relative;
 	flex-direction:column;
@@ -25,6 +28,7 @@
 	/*border:solid 2px blue;*/
 	width:50%;
 	margin-left:15px;
+	
 }
 
 @media screen and (max-width: 480px){
@@ -39,7 +43,7 @@
 	}
 	
 }
-@media screen and (min-width: 481px){
+@media screen and (min-width: 480px){
 	.ribbonWrapper{
 		position: absolute;
 		right:50px;

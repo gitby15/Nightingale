@@ -32,6 +32,7 @@ export default class ItemBlock extends Component{
 		let styles = {
 			wrapper:{
 				width:'100%',
+				minWidth:'30px',
 				paddingBottom:'100%',
 				//border:'solid black 2px',
 
@@ -72,7 +73,6 @@ export default class ItemBlock extends Component{
 						style={styles.itemBase}
 						onClick={this.onClick.bind(this)}
 						>
-
 						</div>
 				</StyleRoot>
 				</div>

@@ -2,18 +2,10 @@
 	background-color: #fff;
 	z-index: 2;
 	pointer-events: none;
-	position: relative;
-	
+	position: relative;	
 	animation:route 0.5s ease-in;
 	animation-play-state: run;
-	animation-fill-mode: forwards;
-
-	
-
-	/*animation-fill-mode: forwards;
-	
-	*/
-	
+	animation-fill-mode: forwards;	
 }
 
 
