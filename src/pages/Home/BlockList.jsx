@@ -7,6 +7,7 @@ import styles from './BlockList.css';
 
 import ItemBlock from './../../components/ItemBlock';
 import RowCard from '../../layouts/RowCard';
+import FloatPage from '../../layouts/FloatPage';
 
 class BlockList extends Component{
 	constructor(props){
@@ -65,12 +66,13 @@ class BlockList extends Component{
 
 		return(
 				<RowCard>
+					
 						<ItemBlock imgPath={{front:'images/person.jpg',
 											back :'images/personbg.jpg'}}
 									ref='person'
 									onClick={this.handleClick.bind(this,'person')}
 									/>
-						
+					
 					
 						<ItemBlock imgPath={{front:'images/projects.jpg',
 											back :'images/projectsbg.jpg'}}

@@ -70,7 +70,7 @@ class Carousel extends Component{
 	  		wrapper:{
 	  			overflow:'hidden',
 	  			height:'0px',
-	  			paddingBottom:'50%',//2:1
+	  			paddingBottom:'57%',//2:1
 	  			position:'relative',
 	  			width:'100%',
 	  			margin:'0'
