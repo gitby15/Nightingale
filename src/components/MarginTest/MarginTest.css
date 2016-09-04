@@ -1,0 +1,17 @@
+.container{
+	border:solid 2px black;
+	overflow: hidden;
+}
+
+
+.container:after{
+	content:'';
+	display: block;
+	margin-top:100%;
+}
+
+.content{
+	border:solid 2px red;
+	height:50%;
+	width:50%;
+}
