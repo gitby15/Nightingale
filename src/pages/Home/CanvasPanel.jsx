@@ -11,7 +11,7 @@ class CanvasPanel extends Component{
 
 	render(){
 		return(
-			<MarginTest />
+			<div>CanvasPanel</div>
 			);
 	}
 }

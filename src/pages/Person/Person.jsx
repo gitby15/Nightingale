@@ -3,8 +3,10 @@ import Radium, {Style} from 'radium';
 
 
 import Banner from '../../layouts/Banner';
+import FloatPage from '../../layouts/FloatPage';
+import RaceGame from '../../components/RaceGame';
 
-import {Grid, Row, Col} from 'react-bootstrap';
+
 
 class Person extends Component{
 
@@ -12,12 +14,10 @@ class Person extends Component{
 
 	render(){
 		return(
-			<Grid>
-				<Row>
-					
+			<FloatPage>
 				<Banner />
-				</Row>
-			</Grid>
+				<RaceGame />
+			</FloatPage>
 			
 			);
 	}

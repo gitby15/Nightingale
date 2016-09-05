@@ -78,8 +78,7 @@ class RaceGame extends Component{
 									
 		let inlineStyles = {
 			runner1:{
-				left:(p1<100?p1:100)+'%',
-				display:'block'
+				left:(p1<100?p1:100)+'%'
 			},
 			runner2:{
 				left:(p2<100?p2:100)+'%'
