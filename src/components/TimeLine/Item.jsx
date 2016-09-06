@@ -17,8 +17,7 @@ class Item extends Component{
 			<div className={styles.container}>
 				<Point />
 				<PopCard />
-				<Line />
-
+				
 
 			</div>
 

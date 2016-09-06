@@ -1,73 +1,49 @@
 .container{
 	position: relative;
-	width: 140px;
-	height: 140px;
-	overflow: hidden;
+	
+	
 	
 }
-.container:after{
-	content: '';
-	border-radius: 50%;
-	border: solid 2px red;
-	height: 98%;
-	width: 98%;
+
+
+.svg{
+	width:100%;
+	height:100%;
 	display: block;
-	margin: 1%;
-
+	width: 14px;
+	height: 14px;
+	
 }
 
 
-.boardWrapper{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: flex;
-
-}
-
-.board{
+.circle{
+	width:100%;
+	height:100%;
+	cx:50%;
+	cy:50%;
+	
+	fill:none;
+		
 	/*
-		border: solid pink 2px;
 
+	transition: 1s;
+stroke:black;
+		stroke-width:2px;
+		stroke-dasharray: 282%;
+		stroke-dashoffset:0%;
+		r:45%;
+		2PI*a %
+		stroke-dashoffset:308%;
 	*/
-	width: 50%;
-	flex-grow: 0;
-	overflow: hidden;
+
 }
 
-.boardLeft{
-	composes: board;
+.line{
+	border:solid 2px blue;
+	height:30px;
+	width:0;
+	margin-left:5px;
+
 }
 
-.boardRight{
-	composes: board;
-}
-
-.boardLeft:before{
-	content: '';
-	display: block;
-	height: 110%;
-	width: 200%;
-	background: #fff;
-	transition: 2s;
-	transform: rotate(-180deg);
-	transform-origin: 100% 50%;
-	
-}
-
-/*
-
-	border: solid 2px black;
-*/
-
-.boardRight:before{
-	content: '';
-	display: block;
-	height: 100%;
-	width: 200%;
-	background: #fff;
-	transition: 2s;
-	transform: rotate(-180deg);
-	transform-origin: 0% 50%;
-}
 
