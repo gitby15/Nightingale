@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
-import RaceGame from '../../components/RaceGame';
-import MarginTest from '../../components/MarginTest';
+import TimeLine from '../../components/TimeLine';
 
 
 
@@ -11,7 +10,7 @@ class CanvasPanel extends Component{
 
 	render(){
 		return(
-			<div>CanvasPanel</div>
+			<TimeLine />
 			);
 	}
 }

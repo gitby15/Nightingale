@@ -33,11 +33,11 @@ class Carousel extends Component{
 	}
 	  // 开始自动轮播
 	goPlay() {
-	    if(this.props.autoplay) {
-	      this.autoPlayFlag = setInterval(() => {
-	        this.turn(1);
-	      }, this.props.delay * 1000);
-	    }
+	    // if(this.props.autoplay) {
+	    //   this.autoPlayFlag = setInterval(() => {
+	    //     this.turn(1);
+	    //   }, this.props.delay * 1000);
+	    // }
 	}
 
 	  // 暂停自动轮播
@@ -46,7 +46,7 @@ class Carousel extends Component{
 	}
 
 	componentDidMount(){
-	  	this.goPlay();
+	  	// this.goPlay();
 	}
 
 	componentWillUnmount(){

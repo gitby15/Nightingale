@@ -1,0 +1,52 @@
+.container{
+	position: relative;
+	width: 14px;
+	height: 14px;
+	
+
+}
+
+
+
+.circleWrapper{
+	overflow: hidden;
+	position: absolute;
+	height: 100%;
+	width: 50%;
+}
+.circleWrapperLeft{
+	composes: circleWrapper;
+	left: 0;
+}
+.circleWrapperRight{
+	
+	composes: circleWrapper;
+	right: 0;
+}
+
+
+.circleBase{
+	height: 100%;
+	width: 200%;
+	border: 2px solid transparent;
+	border-radius: 50%;
+	position: absolute;
+	transform: rotate(-45deg);
+	
+}
+
+.circleLeft{
+	
+	composes: circleBase;
+	top: 0;
+	left: 0;
+	border-left: solid red 2px;
+	border-top: solid red 2px;
+}
+
+.circleRight{
+	composes: circleBase;
+	right: 0;
+	border-right: solid red 2px;
+	border-bottom: solid red 2px;
+}

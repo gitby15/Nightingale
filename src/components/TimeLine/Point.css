@@ -1,0 +1,73 @@
+.container{
+	position: relative;
+	width: 140px;
+	height: 140px;
+	overflow: hidden;
+	
+}
+.container:after{
+	content: '';
+	border-radius: 50%;
+	border: solid 2px red;
+	height: 98%;
+	width: 98%;
+	display: block;
+	margin: 1%;
+
+}
+
+
+.boardWrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+
+}
+
+.board{
+	/*
+		border: solid pink 2px;
+
+	*/
+	width: 50%;
+	flex-grow: 0;
+	overflow: hidden;
+}
+
+.boardLeft{
+	composes: board;
+}
+
+.boardRight{
+	composes: board;
+}
+
+.boardLeft:before{
+	content: '';
+	display: block;
+	height: 110%;
+	width: 200%;
+	background: #fff;
+	transition: 2s;
+	transform: rotate(-180deg);
+	transform-origin: 100% 50%;
+	
+}
+
+/*
+
+	border: solid 2px black;
+*/
+
+.boardRight:before{
+	content: '';
+	display: block;
+	height: 100%;
+	width: 200%;
+	background: #fff;
+	transition: 2s;
+	transform: rotate(-180deg);
+	transform-origin: 0% 50%;
+}
+
