@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from './TimeLine.css';
 
-import Item from './Item.jsx';
+import Potin from './Point.jsx';
 
 class TimeLine extends Component{
 
@@ -12,11 +12,15 @@ class TimeLine extends Component{
 
 
 		return(
+		
+
+
+
 		<section>
 			<div className={styles.container}>
-				<Item/>
-				<Item/>
-				<Item/>
+				<Point/>
+				<Point/>
+				<Point/>
 
 
 			</div>

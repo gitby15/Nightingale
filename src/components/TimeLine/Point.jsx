@@ -23,7 +23,10 @@ class Point extends Component{
 		circleStrokeWidth:2,
 		transitionTime:1,
 		panelOffsetX:0,
-		panelOffsetY:0
+		panelOffsetY:0,
+		panelMargin:10,
+		panelWidth:250,
+		panelBorderWidth:1
 	}
 
 	componentDidMount(){
@@ -59,15 +62,16 @@ class Point extends Component{
 		let cy = this.props.circleWidth	/2 + this.props.circleOffsetY;
 		//console.log(svgWidth);
 
-		let panelTop = cy+this.props.panelOffsetY;
-		let panelLeft = cx+radius+this.props.circleStrokeWidth+this.props.panelOffsetX;
+		//let panelTop = this.props.panelOffsetY;
+		let panelTop = cy - this.props.panelBorderWidth - (this.state.panelHeight)/2 ;
+		let panelLeft = cx+radius+this.props.circleStrokeWidth+this.props.panelOffsetX+10;
 
 
 
 		let x1 = cx;
 		let y1 = cy+radius+this.props.circleStrokeWidth/2;
 		let x2 = x1;
-		let y2 = this.state.panelHeight+panelTop;
+		let y2 = this.state.panelHeight+this.props.panelMargin;
 		console.log('panelEnd');
 		console.log(this.state.panelHeight);
 		//let y2 = y1;
@@ -91,7 +95,12 @@ class Point extends Component{
 
 			panel:{
 				top:panelTop+'px',
-				left:panelLeft+'px'
+				//top:'-50%',
+				left:panelLeft+'px',
+				width:this.props.panelWidth+'px',
+				border:'solid black',
+				borderWidth:this.props.panelBorderWidth+'px'
+
 			}
 		}
 
@@ -121,8 +130,7 @@ class Point extends Component{
 				</svg>
 
 				<article className={styles.panel} style={InlineStyles.panel} ref='panel'> 
-					<h2>Title</h2>
-					<p>123123j123kj21k3j12lk3jl12j3l1</p>
+					{this.props.children}
 				</article>
 				
 			</div>

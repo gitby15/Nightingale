@@ -15,8 +15,10 @@ class Item extends Component{
 
 		return(
 			<div className={styles.container}>
-				<Point />
-				<PopCard />
+				<Point >
+					<div>123123213123</div>
+				</Point>
+				
 				
 
 			</div>
