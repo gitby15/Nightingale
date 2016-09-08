@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from './TimeLine.css';
 
-import Potin from './Point.jsx';
+import Point from './Point.jsx';
 
 class TimeLine extends Component{
 
