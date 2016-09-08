@@ -16,7 +16,8 @@ class Point extends Component{
 
 	static defaultProps = {
 		
-		
+		first:false,
+		last:false,
 		
 		
 
@@ -48,11 +49,15 @@ class Point extends Component{
 
 		let x1 = cx;
 		let y1 = cy+radius+this.props.pointStrokeWidth/2;
+		//let y1 = 0;
 		let x2 = x1;
 		//let y2 = this.state.panelHeight+this.props.panelMargin;
 		let y2 = y1;
 
 		this.setState({
+
+
+
 			pointX:cx,
 			pointY:cy,
 			pointR:radius,
@@ -80,6 +85,9 @@ class Point extends Component{
 	componentDidMount(){
 
 		let y2 = this.refs.panel.offsetHeight+this.props.panelMargin;
+
+
+
 		this.setState({
 			panelHeight:this.refs.panel.offsetHeight,
 			lineY2:y2,
@@ -117,6 +125,15 @@ class Point extends Component{
 		let y2 = this.state.lineY2;
 
 
+		let showPanel = this.state.showPanel;
+		let showLine = !this.props.last;
+
+		if(this.props.last||this.props.first){
+			showPanel = false;
+		}
+
+
+
 		let InlineStyles = {
 			circle:{
 					strokeWidth:this.props.pointStrokeWidth+'px',
@@ -136,13 +153,14 @@ class Point extends Component{
 				width:this.props.panelWidth+'px',
 				border:'solid black',
 				borderWidth:this.props.panelBorderWidth+'px',
-				visibility:this.state.showPanel?'visible':'hidden'
+				visibility:showPanel?'visible':'hidden'
 
 			},
 			line:{
 				transform:'scaleY('+(this.state.showLine?1:0)+')',
 				transition:this.props.transitionTime+'s',
-				transitionDelay:this.props.transitionTime+'s'
+				transitionDelay:this.props.transitionTime+'s',
+				display:showLine?"block":'none'
 			}
 		}
 
@@ -181,7 +199,7 @@ class Point extends Component{
 				</svg>
 
 				<article className={styles.panel} style={InlineStyles.panel} ref='panel'> 
-					<p>sadsdadasdas</p><p>sadsdadasdas</p><p>sadsdadasdas</p>
+					
 					{this.props.children}
 				</article>
 				

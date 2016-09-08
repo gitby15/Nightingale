@@ -18,9 +18,14 @@ class TimeLine extends Component{
 
 		<section>
 			<div className={styles.container}>
-				<Point/>
-				<Point/>
-				<Point/>
+				<Point first={true}/>
+				<Point>
+					<p>joaisjdsalkjddsajdljsaldjasljdlkasjdljasdjs</p>
+					<p>joaisjdsalkjddsajdljsaldjasljdlkasjdljasdjs</p>
+					<p>joaisjdsalkjddsajdljsaldjasljdlkasjdljasdjs</p>
+					
+				</Point>
+				<Point last={true}/>
 
 
 			</div>
