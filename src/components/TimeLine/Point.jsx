@@ -28,7 +28,8 @@ class Point extends Component{
 		pointColor:'pink',
 		pointStrokeWidth:2,
 
-		panelWidth:250,
+		panelMinWidth:250,
+		panelMinHeight:100,
 		panelBorderWidth:1,
 		panelMargin:10,
 		//index:NaN,
@@ -150,7 +151,8 @@ class Point extends Component{
 				transition:this.props.transitionTime+'s',
 				transitionDelay:this.props.transitionTime+'s',
 				transform:'translateY(-50%) translateY('+radius+'px)',
-				width:this.props.panelWidth+'px',
+				minWidth:this.props.panelMinWidth+'px',
+				minHeight:this.props.panelMinHeight+'px',
 				border:'solid black',
 				borderWidth:this.props.panelBorderWidth+'px',
 				visibility:showPanel?'visible':'hidden'
