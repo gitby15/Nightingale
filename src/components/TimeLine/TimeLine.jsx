@@ -31,6 +31,8 @@ class TimeLine extends Component{
 
 		*/}
 				
+				<Line/>				
+				<Line/>				
 				<Line/>
 
 			</div>
