@@ -6,10 +6,25 @@ import Line from './Line.jsx';
 
 class TimeLine extends Component{
 
+	//I know velocity of points and lines
+	static defaultProps = {
+		arr:[1,2,3,4,5]
+	}
 
 
 	render(){
 
+
+		// let children = this.props.children;
+		// children.map(()=>{
+
+
+		// });
+
+		this.props.arr.map((item,idx)=>{
+
+			console.log(item);
+		});
 
 
 		return(
@@ -31,9 +46,14 @@ class TimeLine extends Component{
 
 		*/}
 				
-				<Line/>				
-				<Line/>				
-				<Line/>
+				<Line first={true}/>				
+				<Line>
+					<div>123123123</div>
+					<div>123123123</div>
+					<div>123123123</div>
+					<div>123123123</div>
+				</Line>				
+				<Line last={true}/>
 
 			</div>
 

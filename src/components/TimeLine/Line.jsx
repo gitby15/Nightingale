@@ -26,7 +26,7 @@ class Line extends Component{
 	static defaultProps = {
 		//velocity = 0.15px/ms
 		velocity:0.15,
-
+		pointTransitionDuration:1000,
 
 		first:false,
 		last:false,
@@ -75,16 +75,21 @@ class Line extends Component{
 		let containerHeight = panelHeight+2*this.props.panelMargin;
 		let velocity = this.props.velocity;
 
-		let LineTransitionDelay = containerHeight/velocity/2;
+		let LineTransitionDelay = (containerHeight - this.state.pointR - this.props.pointStrokeWidth)/velocity/2;
 		let line = this.refs.lineTop;
 		this.line = line;
 		let cx = this.state.pointR+this.props.pointStrokeWidth/2;
-		let cy = this.props.pointStrokeWidth/2+this.props.panelMargin+panelHeight/2;
+		let cy;
+		if(this.props.first){
+			cy=this.props.pointStrokeWidth+this.state.pointR;
+		}else{
+			cy = this.props.pointStrokeWidth/2+this.props.panelMargin+panelHeight/2;
+		}
+		
 
 		let panelLeft = cx+this.state.pointR+this.props.pointStrokeWidth+10;
 
-		let pointTransitionDuration = 1000;
-
+		let pointTransitionDuration = this.props.pointTransitionDuration;
 
 		this.setState({
 			containerHeight:containerHeight,
@@ -134,20 +139,24 @@ class Line extends Component{
 				position:'absolute',
 				top:panelMargin+'px',
 				left:(pointR*2+pointStrokeWidth+8)+'px',
+				display:(first||last)?'none':'block'
 			},
 			lineTop:{
 				stroke:lineColor,
 				strokeWidth:'2',
 				display:first?'none':'block',
 				transitionDuration:LineTransitionDelay+'ms',
-				transform:'scaleY('+(showLineTop?1:0)+')'
+				transform:'scaleY('+(showLineTop?1:0)+')',
+			//	transitionFunction:'linear'
 			},
 			lineBottom:{
 				stroke:'red',
 				strokeWidth:'2',
-				display:first?'none':'block',
+				display:last?'none':'block',
 				transitionDuration:LineTransitionDelay+'ms',
-				transform:'scaleY('+(showLineBottom?1:0)+')'
+				transform:'scaleY('+(showLineBottom?1:0)+')',
+
+		//		transitionFunction:'linear'
 
 			},
 			point:{
@@ -162,15 +171,11 @@ class Line extends Component{
 			<div className={styles.container}>
 				<svg className={styles.svg} height={containerHeight}>
 					<line x1={pointX} y1={pointY} x2={pointX} y2={containerHeight} style={InlineStyle.lineBottom}/>
-					<line ref='lineTop' x1={pointX} y1={0} x2={pointX} y2={pointY} style={InlineStyle.lineTop}/>
+					<line ref='lineTop' x1={pointX} y1={0} x2={pointX} y2={pointY-pointR} style={InlineStyle.lineTop}/>
 					<circle ref='point' className={styles.point} cx={pointX} cy={pointY} r={pointR} style={InlineStyle.point}/>
 				</svg>
 				<article className={styles.panel} ref='panel' style={InlineStyle.panel}>
-					<p>123123</p>
-
-					<p>123123</p>
-
-					<p>123123</p>
+					{this.props.children}
 				</article>
 
 			</div>
