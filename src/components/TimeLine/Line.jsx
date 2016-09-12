@@ -9,8 +9,6 @@ class Line extends Component{
 			showLine:false,
 			showPoint:false,
 			showPanel:false,
-			pointTransitionDuration:0,
-
 
 			pointX:0,
 			pointY:0,
@@ -19,19 +17,32 @@ class Line extends Component{
 			//container properties
 			containerHeight:0,
 		}
+		this.showNext = function(){
+			
+		}
+
+
+
 	}
 
 
+	showNext(){}
+	static showDom(cback){
+		console.log('showDom');
+		console.log(this.props);
+			//console.log(this.state);
+	}
 
 	static defaultProps = {
-		//velocity = 0.15px/ms
+		//velocity = 0.12px/ms
 		velocity:0.15,
+		lineVelocity:0.12,
 		pointTransitionDuration:1000,
-
+		pointDuration:1000,
 		first:false,
 		last:false,
-		
-		
+		//showNext:Line.showNext,
+		showDom:Line.showDom,
 
 		pointStrokeWidth:2,
 		
@@ -52,8 +63,13 @@ class Line extends Component{
 
 
 	componentWillMount(){
+
+		/*
+		before first render, you can only calculate radius of point,
+		you should calculate other value you need after first render with componentDidMount() method
+
+		*/
 		let radius = this.props.pointRadius;
-		
 		let dashArray = Math.PI*2*radius;
 		let dashOffset = dashArray;//don't dhow
 		this.setState({
@@ -67,24 +83,65 @@ class Line extends Component{
 
 	}
 
-	componentDidMount(){
 
-		//let panel = this.refs.panel;
+	
+
+	componentWillReceiveProps(newProps){
+		//console.log(newProps);
+	}
+
+
+	componentDidMount(){
+		/*
+			After first render, you can get the dom element, so you can calculate
+			the panel size, container size, point position and animation durational time.
+			This method isn't use to show the dom, just only calculate all the value you need.
+
+			Every item has a switch, show the dom and begin animation while switch turn on
+
+		*/
+
+
+		// 0. variable statement
+		let {panel, lineTop, lineBottom, point} = this.refs;
+		let {panelMargin,lineVelocity,pointStrokeWidth,pointDuration,first,last} = this.props;
+
+		let {pointR} = this.state;
+
+
 
 		let panelHeight = this.refs.panel.offsetHeight;
 		let containerHeight = panelHeight+2*this.props.panelMargin;
 		let velocity = this.props.velocity;
 
 		let LineTransitionDelay = (containerHeight - this.state.pointR - this.props.pointStrokeWidth)/velocity/2;
-		let line = this.refs.lineTop;
-		this.line = line;
-		let cx = this.state.pointR+this.props.pointStrokeWidth/2;
-		let cy;
-		if(this.props.first){
-			cy=this.props.pointStrokeWidth+this.state.pointR;
-		}else{
-			cy = this.props.pointStrokeWidth/2+this.props.panelMargin+panelHeight/2;
-		}
+		
+
+
+		let lineTopY2,lineBottomY1,lineDuration;
+		let cx,cy;
+		let fullAnimationDuration;
+
+
+		// 1. calculate container's size and panel's size
+		panelHeight = panel.offsetHeight;
+		containerHeight = panelHeight+2*panelMargin;
+
+		// 2. calculate point position
+
+		cx = pointR + pointStrokeWidth;
+		cy = first?(pointStrokeWidth+pointR):(containerHeight/2);
+
+		// 3. calculate lines position
+		lineTopY2 = cy-pointR-pointStrokeWidth/2;
+		lineBottomY1 = cy+pointR+pointStrokeWidth/2;
+
+		// 4. calculate animation duration time
+		lineDuration = (containerHeight - pointR*2 - pointStrokeWidth)/(2*lineVelocity);
+		fullAnimationDuration = 2*lineDuration+pointDuration;
+
+
+		
 		
 
 		let panelLeft = cx+this.state.pointR+this.props.pointStrokeWidth+10;
@@ -119,6 +176,8 @@ class Line extends Component{
 
 		
 	}
+
+
 
 	render(){
 
