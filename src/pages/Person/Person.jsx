@@ -20,6 +20,8 @@ class Person extends Component{
 				<TimeLine>
 					<TimeLine.Item key={'item-1'}>
 						<div>123</div>
+						<div>123</div>
+						<div>123</div>
 					</TimeLine.Item>
 					<TimeLine.Item key={'item-2'}>
 						<div>123</div>

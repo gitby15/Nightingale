@@ -5,18 +5,40 @@ import Point from './Point.jsx';
 import Line from './Line.jsx';
 
 class TimeLine extends Component{
-	static Item = Line;
+
+	static Item = class Temp extends Component{
+		render(){
+			return null;
+		}
+
+	};
 	//I know velocity of points and lines
 	static defaultProps = {
-		arr:[1,2,3,4,5]
+		// arr:[1,2,3,4,5]
+		delayArr:[]
+
+	}
+
+	constructor(props){
+		super(props);
+		this.state = {
+			a:5
+		}
+		this.delayArr = [];
 	}
 
 
-	showNext(){
-
+	showNext(idx,duration){
+		// console.log(this.a);
+		//this.a = duration;
+		this.props.delayArr.push(duration);
+		
+		//console.log(this.props.delayArr);
 	}
 
 	componentDidMount(){
+		console.log(this.props.delayArr);
+	
 
 	}
 
@@ -26,15 +48,18 @@ class TimeLine extends Component{
 		let children = this.props.children;
 
 		let middleItems = [];
-		 
+		 console.log('a:' + this.state.a);
 
 		if(children){
-			children.map((item,idx)=>{
-				console.log(item);
-				item.props.showDom('bbb');
-				//item.showDom(222);
-				//item.props.last = true;
-			//	item.props.a = 'a';
+			middleItems = children.map((item,idx)=>{
+		//		console.log('map.temp : '+this.temp);
+				console.log('a2:');
+				console.log(this.a);
+				return(
+					<Line key={item.key} idx={idx} showNext={this.showNext.bind(this)} delay={this.itemDelay}>
+						{item.props.children}
+					</Line>
+					)
 
 		 });
 		}
@@ -61,7 +86,7 @@ class TimeLine extends Component{
 		*/}
 				
 				<Line key={'item-first'} first={true}/>				
-				{this.props.children}		
+				{middleItems}		
 				<Line key={'item-last'} last={true}/>
 
 			</div>

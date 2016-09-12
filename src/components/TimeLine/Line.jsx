@@ -17,22 +17,16 @@ class Line extends Component{
 			//container properties
 			containerHeight:0,
 		}
-		this.showNext = function(){
-			
-		}
+
+		this.a = 2;
+		
 
 
 
 	}
 
 
-	showNext(){}
-	static showDom(cback){
-		console.log('showDom');
-		console.log(this.props);
-			//console.log(this.state);
-	}
-
+	
 	static defaultProps = {
 		//velocity = 0.12px/ms
 		velocity:0.15,
@@ -42,7 +36,7 @@ class Line extends Component{
 		first:false,
 		last:false,
 		//showNext:Line.showNext,
-		showDom:Line.showDom,
+		
 
 		pointStrokeWidth:2,
 		
@@ -79,11 +73,18 @@ class Line extends Component{
 			pointDashOffset:dashOffset,
 
 		})
+		
 
 
 	}
 
 
+	showDom(){
+
+		//this.props.showNext(this.props.idx,this.state.lineDuration);
+	//	console.log('showNext');
+	//	console.log(this.props.showNext);
+	}
 	
 
 	componentWillReceiveProps(newProps){
@@ -101,7 +102,8 @@ class Line extends Component{
 
 		*/
 
-
+		//console.log('delay:'+this.props.delay);
+		
 		// 0. variable statement
 		let {panel, lineTop, lineBottom, point} = this.refs;
 		let {panelMargin,lineVelocity,pointStrokeWidth,pointDuration,first,last} = this.props;
@@ -143,6 +145,7 @@ class Line extends Component{
 
 		
 		
+		
 
 		let panelLeft = cx+this.state.pointR+this.props.pointStrokeWidth+10;
 
@@ -154,8 +157,18 @@ class Line extends Component{
 			pointY:cy,
 			panelLeft:panelLeft,
 			LineTransitionDelay:LineTransitionDelay,
-			showLineTop:true
+			showLineTop:true,
+			lineDuration:lineDuration
 		});
+
+
+
+		if(!first&&!last){
+					//this.showDom();
+					this.props.showNext(this.props.idx,lineDuration);
+					//console.log(this.props.showNext);
+
+					}
 
 		setTimeout(()=>{
 			this.setState({
@@ -170,6 +183,7 @@ class Line extends Component{
 				showLineBottom:true
 
 			});
+			
 		},pointTransitionDuration)
 
 		},LineTransitionDelay);
