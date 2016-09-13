@@ -2,7 +2,10 @@
 	position: relative;
 }
 
-.line{}
+.line{
+	transition-timing-function: linear;
+
+}
 
 
 

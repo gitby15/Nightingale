@@ -1,7 +1,7 @@
 let defaultProps = {
 		//velocity = 0.12px/ms
-		velocity:0.15,
-		lineVelocity:0.12,
+		//velocity:0.15,
+		lineVelocity:0.1,
 		pointDuration:1000,
 		first:false,
 		last:false,
@@ -20,8 +20,10 @@ let defaultProps = {
 
 		lineColor:'blue',
 		lineStrokeWidth:2,
+		lineWidth:2,
 
-		emmitDelay:null
+		emmitDelay:null,
+		showComponent:false
 	}
 
 export default defaultProps;

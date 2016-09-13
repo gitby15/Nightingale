@@ -82,15 +82,24 @@ export default class ItemHead extends Component{
 		});
 	}
 
+	componentWillReceiveProps(newProps){
+		if(this.props.showComponent==false&&newProps.showComponent==true){
+			this.showComponent();
+		}
+
+		console.log(newProps);
+	}
+
 	componentDidMount(){
 		
 		//this.showDom();
 
 
+		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration,this.showComponent.bind(this));
 	}
 
 
-	showDom(){
+	showComponent(){
 		/*
 			this.state.lineScale = 1,
 			this.state.pointDashOffset = 1

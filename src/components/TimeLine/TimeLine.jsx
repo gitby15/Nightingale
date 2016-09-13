@@ -24,21 +24,34 @@ class TimeLine extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			itemDelays:{}
+			itemDelays:{},
+			cbacks:{},
 		}
 	}
 
 
-	showNext(idx,duration){
+
+
+
+
+
+	emmitDelay(idx,duration,cback){
 		
 		
 		this.state.itemDelays[idx] = duration;
-		console.log(this.state.itemDelays);
+		this.state.cbacks[idx] = cback;
 	}
 
 	componentDidMount(){
 		
-	
+		let timer = 100;
+		const {cbacks, itemDelays} = this.state;
+
+		for(let idx in cbacks){
+			
+			setTimeout(cbacks[idx],timer);
+			timer += itemDelays[idx];
+		}
 
 	}
 
@@ -54,7 +67,7 @@ class TimeLine extends Component{
 					index = 'head';
 				}
 				return(
-					<ItemA key={item.key} idx={idx} showNext={this.showNext.bind(this)} delay={this.state.itemDelays[index]}>
+					<ItemA key={item.key} idx={idx+1} emmitDelay={this.emmitDelay.bind(this)} delay={this.state.itemDelays[index]}>
 						{item.props.children}
 					</ItemA>
 					)
@@ -70,9 +83,9 @@ class TimeLine extends Component{
 
 		<section>
 			<div className={styles.container} >
-				<ItemHead key={'item-first'} />				
+				<ItemHead key={'item-first'} idx={0} emmitDelay={this.emmitDelay.bind(this)} showComponent={true}/>				
 				{middleItems}		
-				<ItemEnd key={'item-last'} last={true} />
+				<ItemEnd key={'item-last'} idx={middleItems.length+1}  emmitDelay={this.emmitDelay.bind(this)}/>
 
 			</div>
 

@@ -20,6 +20,7 @@ export default class Item extends Component{
 			lineBottomY2:0,
 			containerHeight:0,
 			panelLeft:0,
+			panelVisibility:'hidden',
 			fullAnimationDuration:0,
 
 		}
@@ -29,15 +30,17 @@ export default class Item extends Component{
 	static defaultProps = dp;
 
 
-	showDom(){
+	showComponent(){
 			/*
 			this.state.lineScale = 1,
 			this.state.pointDashOffset = 1
+			this.state.panelVisibility form 'hidden' to 'visiable'
 		*/
 		this.setState({
 			lineScale:1,
-			pointDashOffset:0
-		})
+			pointDashOffset:0,
+			panelVisibility:'visible'
+		});
 	}
 
 
@@ -50,14 +53,15 @@ export default class Item extends Component{
 
 		let pointR = this.props.pointRadius;
 		let dashArray = Math.PI*2*pointR;
-		let dashOffset = dashArray;//don't dhow
+		let dashOffset = dashArray;//don't show
+		console.log('is wranning here?');
 		this.setState({
 			
 			pointR:pointR,
 			pointDashArray:dashArray,
 			pointDashOffset:dashOffset,
 
-		})
+		});
 
 
 	}
@@ -126,7 +130,9 @@ export default class Item extends Component{
 			fullAnimationDuration:fullAnimationDuration
 		});
 
-		this.showDom();
+		//this.showComponent();
+		this.props.emmitDelay(this.props.idx,fullAnimationDuration,this.showComponent.bind(this));
+		//console.log(this);
 	}
 
 
@@ -153,7 +159,8 @@ export default class Item extends Component{
 			lineBottomY1,
 			lineBottomY2,
 			containerHeight,
-			panelLeft,
+			panelPosition,
+			panelVisibility
 			//fullAnimationDuration,
 			
 		} = this.state;
@@ -164,17 +171,21 @@ export default class Item extends Component{
 			panel:{
 				position:'absolute',
 				top:panelMargin+'px',
-				left:panelLeft+'px',
+				left:panelPosition+'px',
+				visibility:panelVisibility,
+				transitionDuration:pointDuration+'ms',
+				transitionDelay:lineDuration + 'ms'
+
 				
 			},
 			lineBottom:{
 				stroke:lineColor,
 				strokeWidth:lineWidth + 'px',
 				transitionProperty:'transform',
-				transitionDelay:pointDuration+'ms',
+				transitionDelay:lineDuration+pointDuration+'ms',
 				transitionDuration:lineDuration+pointDashOffset +'ms',
 				transform:'scaleY('+lineScale+')',
-				//transitionFunction:'linear'
+				transitionTimingFunction:'linear'
 
 			},
 			lineTop:{
@@ -183,7 +194,7 @@ export default class Item extends Component{
 				transitionProperty:'transform',
 				transitionDuration:lineDuration +'ms',
 				transform:'scaleY('+lineScale+')',
-				//transitionFunction:'linear'
+				transitionTimingFunction:'linear'
 
 			},
 			point:{
