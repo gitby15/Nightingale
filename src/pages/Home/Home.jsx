@@ -34,5 +34,5 @@ class Home extends Component{
 
 }
 
-module.exports = Home;
+export default Home;
 

@@ -101,6 +101,8 @@ class Line extends Component{
 			Every item has a switch, show the dom and begin animation while switch turn on
 
 		*/
+
+		//console.log('delay:'+this.props.delay);
 		
 		// 0. variable statement
 		let {panel, lineTop, lineBottom, point} = this.refs;
@@ -141,7 +143,6 @@ class Line extends Component{
 		fullAnimationDuration = 2*lineDuration+pointDuration;
 
 
-		// 5. calculate position of panel
 		
 		
 		
