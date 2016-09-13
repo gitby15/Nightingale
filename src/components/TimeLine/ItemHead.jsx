@@ -83,11 +83,10 @@ export default class ItemHead extends Component{
 	}
 
 	componentWillReceiveProps(newProps){
-		if(this.props.showComponent==false&&newProps.showComponent==true){
+
+		if(!this.props.showComponent&&newProps.showComponent){
 			this.showComponent();
 		}
-
-		console.log(newProps);
 	}
 
 	componentDidMount(){
@@ -95,7 +94,7 @@ export default class ItemHead extends Component{
 		//this.showDom();
 
 
-		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration,this.showComponent.bind(this));
+		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration);
 	}
 
 

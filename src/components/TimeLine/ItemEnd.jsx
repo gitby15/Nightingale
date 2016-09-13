@@ -87,7 +87,7 @@ export default class ItemEnd extends Component{
 	componentDidMount(){
 		
 		//this.showDom();
-		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration,this.showComponent.bind(this));
+		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration);
 
 
 	}
@@ -104,7 +104,13 @@ export default class ItemEnd extends Component{
 		})
 	}
 
+	componentWillReceiveProps(newProps){
+		
 
+		if(!this.props.showComponent&&newProps.showComponent){
+			this.showComponent();
+		}
+	}
 
 	render(){
 

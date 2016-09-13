@@ -30,7 +30,7 @@ export default class Item extends Component{
 	static defaultProps = dp;
 
 
-	showComponent(){
+	showDom(){
 			/*
 			this.state.lineScale = 1,
 			this.state.pointDashOffset = 1
@@ -54,7 +54,7 @@ export default class Item extends Component{
 		let pointR = this.props.pointRadius;
 		let dashArray = Math.PI*2*pointR;
 		let dashOffset = dashArray;//don't show
-		console.log('is wranning here?');
+		//console.log('is wranning here?');
 		this.setState({
 			
 			pointR:pointR,
@@ -131,12 +131,19 @@ export default class Item extends Component{
 		});
 
 		//this.showComponent();
-		this.props.emmitDelay(this.props.idx,fullAnimationDuration,this.showComponent.bind(this));
+		this.props.emmitDelay(this.props.idx,fullAnimationDuration);
 		//console.log(this);
+		//console.log(this.props.showComponent);
 	}
 
 
+	componentWillReceiveProps(newProps){
 
+		if(!this.props.showComponent&&newProps.showComponent){
+			console.log(newProps.showComponent);
+			this.showDom();
+		}
+	}
 
 	render(){
 		const {
@@ -159,7 +166,7 @@ export default class Item extends Component{
 			lineBottomY1,
 			lineBottomY2,
 			containerHeight,
-			panelPosition,
+			panelLeft,
 			panelVisibility
 			//fullAnimationDuration,
 			
@@ -171,7 +178,8 @@ export default class Item extends Component{
 			panel:{
 				position:'absolute',
 				top:panelMargin+'px',
-				left:panelPosition+'px',
+				left:panelLeft+'px',
+				transform:'scale('+lineScale+')',
 				visibility:panelVisibility,
 				transitionDuration:pointDuration+'ms',
 				transitionDelay:lineDuration + 'ms'

@@ -25,7 +25,8 @@ class TimeLine extends Component{
 		super(props);
 		this.state = {
 			itemDelays:{},
-			cbacks:{},
+			//cbacks:{},
+			ItemStatus:{}
 		}
 	}
 
@@ -35,23 +36,35 @@ class TimeLine extends Component{
 
 
 
-	emmitDelay(idx,duration,cback){
+	emmitDelay(idx,duration){
 		
 		
 		this.state.itemDelays[idx] = duration;
-		this.state.cbacks[idx] = cback;
+		//this.state.cbacks[idx] = cback;
 	}
 
 	componentDidMount(){
 		
-		let timer = 100;
-		const {cbacks, itemDelays} = this.state;
-
-		for(let idx in cbacks){
+		let timer = 200;
+		const {cbacks, itemDelays,ItemStatus} = this.state;
+	//	console.log(ItemStatus);
+		// for(let idx in cbacks){
 			
-			setTimeout(cbacks[idx],timer);
+		// 	setTimeout(cbacks[idx],timer);
+		// 	timer += itemDelays[idx];
+		// }
+
+		for(let idx in itemDelays){
+			setTimeout(()=>{
+				ItemStatus[idx] = true;
+				this.setState({
+					ItemStatus:ItemStatus
+				});
+				console.log(ItemStatus);
+			},timer);
 			timer += itemDelays[idx];
 		}
+		//console.log(ItemStatus);
 
 	}
 
@@ -59,6 +72,7 @@ class TimeLine extends Component{
 
 
 		let children = this.props.children;
+		let ItemStatus = this.state.ItemStatus;
 		let middleItems = [];
 		if(children){
 			middleItems = children.map((item,idx)=>{
@@ -67,15 +81,16 @@ class TimeLine extends Component{
 					index = 'head';
 				}
 				return(
-					<ItemA key={item.key} idx={idx+1} emmitDelay={this.emmitDelay.bind(this)} delay={this.state.itemDelays[index]}>
+					<ItemA key={item.key} idx={idx+1} emmitDelay={this.emmitDelay.bind(this)}
+					 delay={this.state.itemDelays[index]} showComponent={ItemStatus[idx+1]}>
 						{item.props.children}
 					</ItemA>
 					)
 		 });
 		}
 
-
-
+		let itemEndIdx = middleItems.length + 1;
+		//console.log(ItemStatus[itemEndIdx]);
 		return(
 		
 
@@ -83,9 +98,10 @@ class TimeLine extends Component{
 
 		<section>
 			<div className={styles.container} >
-				<ItemHead key={'item-first'} idx={0} emmitDelay={this.emmitDelay.bind(this)} showComponent={true}/>				
+				<ItemHead key={'item-head'} idx={0} emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[0]} />				
 				{middleItems}		
-				<ItemEnd key={'item-last'} idx={middleItems.length+1}  emmitDelay={this.emmitDelay.bind(this)}/>
+				<ItemEnd key={'item-end'} idx={itemEndIdx}
+				  emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[itemEndIdx]}/>
 
 			</div>
 
