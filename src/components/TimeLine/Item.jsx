@@ -145,7 +145,7 @@ export default class Item extends Component{
 	componentWillReceiveProps(newProps){
 
 		if(!this.props.showComponent&&newProps.showComponent){
-			console.log(newProps.showComponent);
+			//console.log(newProps.showComponent);
 			this.showComponent();
 		}
 	}

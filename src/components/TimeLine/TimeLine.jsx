@@ -58,7 +58,7 @@ class TimeLine extends Component{
 				this.setState({
 					ItemStatus:ItemStatus
 				});
-				console.log(ItemStatus);
+				//console.log(ItemStatus);
 			},timer);
 			timer += itemDelays[idx];
 		}

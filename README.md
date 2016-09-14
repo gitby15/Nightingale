@@ -10,6 +10,10 @@ Goal
 >2. System modularization, and every component is reusable.
 >3. 100% test coverage
 
+Online Demostrate
+------
+http://lijin.leanapp.cn
+
 
 Tech stack
 -----

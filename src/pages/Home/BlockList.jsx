@@ -32,9 +32,8 @@ class BlockList extends Component{
 		let fun = (event)=>{
 			dom.classList.remove(styles.animat);
 			this.refs[target].render();
-			//dom.class
-			console.log('--- location href ---');
-			window.location.href='#/'+target;
+			//window.location.href='#/'+target;
+			window.location.href = '#/person'
 
 		}
 
