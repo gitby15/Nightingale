@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import styles from './TimeLine.css';
 
-import Point from './Point.jsx';
-import Line from './Line.jsx';
 import ItemHead from './ItemHead.jsx';
 import ItemEnd from './ItemEnd.jsx';
 import ItemA from './Item.jsx';
@@ -45,7 +43,7 @@ class TimeLine extends Component{
 
 	componentDidMount(){
 		
-		let timer = 200;
+		let timer = 0;
 		const {cbacks, itemDelays,ItemStatus} = this.state;
 	//	console.log(ItemStatus);
 		// for(let idx in cbacks){
@@ -71,7 +69,7 @@ class TimeLine extends Component{
 	render(){
 
 
-		let children = this.props.children;
+		const {children,className} = this.props;
 		let ItemStatus = this.state.ItemStatus;
 		let middleItems = [];
 		if(children){
@@ -92,24 +90,14 @@ class TimeLine extends Component{
 		let itemEndIdx = middleItems.length + 1;
 		//console.log(ItemStatus[itemEndIdx]);
 		return(
-		
-
-
-
-		<section>
-			<div className={styles.container} >
-				<ItemHead key={'item-head'} idx={0} emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[0]} />				
-				{middleItems}		
-				<ItemEnd key={'item-end'} idx={itemEndIdx}
-				  emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[itemEndIdx]}/>
-
-			</div>
-
-
-		</section>
-			
-
-
+			<section className={className}>
+				<div className={styles.container} >
+					<ItemHead key={'item-head'} idx={0} emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[0]} />				
+					{middleItems}		
+					<ItemEnd key={'item-end'} idx={itemEndIdx}
+					  emmitDelay={this.emmitDelay.bind(this)} showComponent={ItemStatus[itemEndIdx]}/>
+				</div>
+			</section>
 			)
 	}
 }

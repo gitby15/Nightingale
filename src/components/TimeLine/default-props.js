@@ -1,8 +1,8 @@
 let defaultProps = {
 		//velocity = 0.12px/ms
 		//velocity:0.15,
-		lineVelocity:0.1,
-		pointDuration:1000,
+		lineVelocity:0.2,
+		pointDuration:700,
 		first:false,
 		last:false,
 		//showNext:Line.showNext,

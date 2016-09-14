@@ -1,5 +1,8 @@
+.weight{
 
-.container.weight{
+}
+
+.container{
 	/*
 		border:1px solid pink;
 		background: url('./img/light.png');
@@ -9,6 +12,8 @@
 	display: flex;
 	position: relative;
 	flex-direction:column;
+	border-bottom: 1px solid #ccc;
+	
 
 }
 .ribbonWrapper{

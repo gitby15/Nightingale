@@ -26,6 +26,7 @@
 	position: absolute;
 	padding:10px;
 	box-shadow: 0 0 1px 1px #aaa;
+	background-color: #fff;
 }
 
 .panel:after{
@@ -35,7 +36,7 @@
 	height:8px;
 	top:50%;
 	left:-4px;
-	background-color: #fff;
+	background-color: inherit;
 
 	transform: translateY(-50%) rotate(45deg) translateX(1px);
 	box-shadow: -1px 1px 1px 0px #aaa;

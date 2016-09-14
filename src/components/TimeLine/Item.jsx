@@ -18,6 +18,8 @@ export default class Item extends Component{
 			lineTopY2:0,
 			lineBottomY1:0,
 			lineBottomY2:0,
+			lineBottomColor:'none',
+			lineBottomScale:0.5,
 			containerHeight:0,
 			panelLeft:0,
 			panelVisibility:'hidden',
@@ -30,16 +32,19 @@ export default class Item extends Component{
 	static defaultProps = dp;
 
 
-	showDom(){
+	showComponent(){
 			/*
 			this.state.lineScale = 1,
 			this.state.pointDashOffset = 1
 			this.state.panelVisibility form 'hidden' to 'visiable'
+			this.state.lineBottomColor from 'none' to this.props.lineColor
 		*/
 		this.setState({
 			lineScale:1,
 			pointDashOffset:0,
-			panelVisibility:'visible'
+			panelVisibility:'visible',
+			lineBottomColor:this.props.lineColor,
+			lineBottomScale:1
 		});
 	}
 
@@ -141,7 +146,7 @@ export default class Item extends Component{
 
 		if(!this.props.showComponent&&newProps.showComponent){
 			console.log(newProps.showComponent);
-			this.showDom();
+			this.showComponent();
 		}
 	}
 
@@ -156,6 +161,8 @@ export default class Item extends Component{
 		const {
 			lineDuration,
 			lineScale,
+			lineBottomColor,
+			lineBottomScale,
 			pointDashArray,
 			pointDashOffset,
 			pointX,
@@ -191,7 +198,7 @@ export default class Item extends Component{
 				strokeWidth:lineWidth + 'px',
 				transitionProperty:'transform',
 				transitionDelay:lineDuration+pointDuration+'ms',
-				transitionDuration:lineDuration+pointDashOffset +'ms',
+				transitionDuration:lineDuration +'ms',
 				transform:'scaleY('+lineScale+')',
 				transitionTimingFunction:'linear'
 
@@ -211,6 +218,10 @@ export default class Item extends Component{
 				strokeDashoffset: pointDashOffset,
 				transitionProperty:'stroke-dashoffset',
 				transitionDelay:lineDuration+'ms',
+				//transformOrigin:pointX+' '+pointY,
+				//transform:'rotate(-90deg)'
+
+
 
 			}
 		}
@@ -221,6 +232,9 @@ export default class Item extends Component{
 			<div className={styles.container}>
 				<svg className={styles.svg} height={containerHeight}>
 					<line x1={pointX} y1={lineBottomY1} x2={pointX} y2={lineBottomY2} style={InlineStyle.lineBottom}/>
+					{/*
+
+					*/}
 					<line x1={pointX} y1={lineTopY1} x2={pointX} y2={lineTopY2} style={InlineStyle.lineTop}/>
 					<circle className={styles.point} cx={pointX} cy={pointY} r={pointR} style={InlineStyle.point}/>
 				</svg>

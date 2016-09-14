@@ -9,16 +9,7 @@ class CanvasPanel extends Component{
 
 
 	render(){
-		return(
-			<TimeLine>
-					<TimeLine.Item key={'item-1'}>
-						<div>123</div>
-					</TimeLine.Item>
-					<TimeLine.Item key={'item-2'}>
-						<div>123</div>
-					</TimeLine.Item>
-				</TimeLine>
-			);
+		return null;
 	}
 }
 
