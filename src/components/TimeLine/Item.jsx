@@ -14,6 +14,8 @@ export default class Item extends Component{
 			pointX:0,
 			pointY:0,
 			pointR:0,
+			lineArray:"50%",
+			lineOffset:"50%",
 			lineTopY1:0,
 			lineTopY2:0,
 			lineBottomY1:0,
@@ -44,7 +46,8 @@ export default class Item extends Component{
 			pointDashOffset:0,
 			panelVisibility:'visible',
 			lineBottomColor:this.props.lineColor,
-			lineBottomScale:1
+			lineBottomScale:1,
+			lineOffset:0
 		});
 	}
 
@@ -127,6 +130,8 @@ export default class Item extends Component{
 			panelHeight:panelHeight,
 			panelLeft:panelLeft,
 			containerHeight:containerHeight,
+			// lineArray:lineTopY2-lineTopY1,
+			// lineOffset:lineTopY2-lineTopY1,
 			lineTopY1:lineTopY1,
 			lineTopY2:lineTopY2,
 			lineBottomY1:lineBottomY1,
@@ -135,8 +140,8 @@ export default class Item extends Component{
 			fullAnimationDuration:fullAnimationDuration
 		});
 
-		//this.showComponent();
-		this.props.emmitDelay(this.props.idx,fullAnimationDuration);
+		this.showComponent();
+		//this.props.emmitDelay(this.props.idx,fullAnimationDuration);
 		//console.log(this);
 		//console.log(this.props.showComponent);
 	}
@@ -160,9 +165,11 @@ export default class Item extends Component{
 
 		const {
 			lineDuration,
-			lineScale,
+			lineTopOffset,
+			lineArray,
+			lineOffset,
 			lineBottomColor,
-			lineBottomScale,
+			lineBottomOffset,
 			pointDashArray,
 			pointDashOffset,
 			pointX,
@@ -186,7 +193,7 @@ export default class Item extends Component{
 				position:'absolute',
 				top:panelMargin+'px',
 				left:panelLeft+'px',
-				transform:'scale('+lineScale+')',
+				//transform:'scale('+lineScale+')',
 				visibility:panelVisibility,
 				transitionDuration:pointDuration+'ms',
 				transitionDelay:lineDuration + 'ms'
@@ -196,20 +203,25 @@ export default class Item extends Component{
 			lineBottom:{
 				stroke:lineColor,
 				strokeWidth:lineWidth + 'px',
-				transitionProperty:'transform',
+				//transitionProperty:'stroke-dashoffset',
 				transitionDelay:lineDuration+pointDuration+'ms',
 				transitionDuration:lineDuration +'ms',
-				transform:'scaleY('+lineScale+')',
-				transitionTimingFunction:'linear'
+				//transform:'scaleY('+lineScale+')',
+				transitionTimingFunction:'linear',
+				strokeDasharray:'50%',
+				strokeDashoffset:''+lineOffset
 
 			},
 			lineTop:{
 				stroke:lineColor,
 				strokeWidth:lineWidth + 'px',
-				transitionProperty:'transform',
+				//transitionProperty:'transform',
 				transitionDuration:lineDuration +'ms',
-				transform:'scaleY('+lineScale+')',
-				transitionTimingFunction:'linear'
+				//transform:'scaleY('+lineScale+')',
+				transitionTimingFunction:'linear',
+
+				strokeDasharray:'50%',
+				strokeDashoffset:''+lineOffset
 
 			},
 			point:{

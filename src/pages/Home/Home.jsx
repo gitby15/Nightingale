@@ -20,10 +20,11 @@ class Home extends Component{
 		return (
 			
 				<FloatPage>
+				<CanvasPanel />
 					<Banner />				
 					<Carousel />
 					<BlockList />
-					<CanvasPanel />
+					
 				</FloatPage>
 				
 				

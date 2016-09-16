@@ -52,16 +52,16 @@ class TimeLine extends Component{
 		// 	timer += itemDelays[idx];
 		// }
 
-		for(let idx in itemDelays){
-			setTimeout(()=>{
-				ItemStatus[idx] = true;
-				this.setState({
-					ItemStatus:ItemStatus
-				});
-				//console.log(ItemStatus);
-			},timer);
-			timer += itemDelays[idx];
-		}
+		// for(let idx in itemDelays){
+		// 	setTimeout(()=>{
+		// 		ItemStatus[idx] = true;
+		// 		this.setState({
+		// 			ItemStatus:ItemStatus
+		// 		});
+		// 		//console.log(ItemStatus);
+		// 	},timer);
+		// 	timer += itemDelays[idx];
+		// }
 		//console.log(ItemStatus);
 
 	}
