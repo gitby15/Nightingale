@@ -1,5 +1,5 @@
 .container{
-	border:solid red 1px;
+	//border:solid red 1px;
 	position: relative;
 
 	display: flex;
@@ -11,7 +11,7 @@
 
 .svg{
 	margin-right:10px;
-	
+	height: 100%;
 }
 
 

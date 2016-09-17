@@ -140,8 +140,8 @@ export default class Item extends Component{
 			fullAnimationDuration:fullAnimationDuration
 		});
 
-		this.showComponent();
-		//this.props.emmitDelay(this.props.idx,fullAnimationDuration);
+	//	this.showComponent();
+		this.props.emmitDelay(this.props.idx,fullAnimationDuration);
 		//console.log(this);
 		//console.log(this.props.showComponent);
 	}
@@ -208,7 +208,7 @@ export default class Item extends Component{
 				transitionDuration:lineDuration +'ms',
 				//transform:'scaleY('+lineScale+')',
 				transitionTimingFunction:'linear',
-				strokeDasharray:'50%',
+				strokeDasharray:lineBottomY2-lineBottomY1+'px',
 				strokeDashoffset:''+lineOffset
 
 			},
@@ -220,8 +220,8 @@ export default class Item extends Component{
 				//transform:'scaleY('+lineScale+')',
 				transitionTimingFunction:'linear',
 
-				strokeDasharray:'50%',
-				strokeDashoffset:'calc(10-1)'
+				strokeDasharray:lineBottomY2-lineBottomY1+'px',
+				strokeDashoffset:''+lineOffset
 
 			},
 			point:{
@@ -247,7 +247,7 @@ export default class Item extends Component{
 					{/*
 
 					*/}
-					<line className={styles.line} x1={pointX} y1={lineTopY1} x2={pointX} style={InlineStyle.lineTop}/>
+					<line x1={pointX} y1={lineTopY1} x2={pointX} y2={lineTopY2} style={InlineStyle.lineTop}/>
 					<circle className={styles.point} cx={pointX} cy={"50%"} r={pointR} style={InlineStyle.point}/>
 				</svg>
 				<article className={styles.panel} ref='panel' style={InlineStyle.panel}>

@@ -7,6 +7,8 @@ let defaultProps = {
 		pointRadius:6,
 		pointColor:'pink',
 		pointFill:'#fff',
+		pointDuration:700,
+	//	pointDashArray:
 		
 
 
@@ -22,5 +24,8 @@ let defaultProps = {
 		
 		showComponent:false
 	}
+
+
+defaultProps.pointDashArray = defaultProps.pointRadius*2*Math.PI;
 
 export default defaultProps;
