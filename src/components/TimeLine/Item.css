@@ -4,6 +4,7 @@
 
 .line{
 	transition-timing-function: linear;
+	-webkit-y2:50%;
 
 }
 

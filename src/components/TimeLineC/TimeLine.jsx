@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import styles from './TimeLine.css';
-
-import Point from './Point.jsx';
-import Line from './Line.jsx';
+import Line from './Item.jsx';
 
 class TimeLine extends Component{
 
@@ -57,7 +55,7 @@ class TimeLine extends Component{
 				}
 
 				return(
-					<Line key={item.key} idx={idx} showNext={this.showNext.bind(this)} delay={this.state.itemDelays[index]}>
+					<Line key={item.key} idx={idx} >
 						{item.props.children}
 					</Line>
 					)

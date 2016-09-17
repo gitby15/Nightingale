@@ -221,7 +221,7 @@ export default class Item extends Component{
 				transitionTimingFunction:'linear',
 
 				strokeDasharray:'50%',
-				strokeDashoffset:''+lineOffset
+				strokeDashoffset:'calc(10-1)'
 
 			},
 			point:{
@@ -247,8 +247,8 @@ export default class Item extends Component{
 					{/*
 
 					*/}
-					<line x1={pointX} y1={lineTopY1} x2={pointX} y2={lineTopY2} style={InlineStyle.lineTop}/>
-					<circle className={styles.point} cx={pointX} cy={pointY} r={pointR} style={InlineStyle.point}/>
+					<line className={styles.line} x1={pointX} y1={lineTopY1} x2={pointX} style={InlineStyle.lineTop}/>
+					<circle className={styles.point} cx={pointX} cy={"50%"} r={pointR} style={InlineStyle.point}/>
 				</svg>
 				<article className={styles.panel} ref='panel' style={InlineStyle.panel}>
 					{this.props.children}

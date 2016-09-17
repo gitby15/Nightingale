@@ -5,7 +5,7 @@ import styles from './Person.css';
 import Banner from '../../layouts/Banner';
 import FloatPage from '../../layouts/FloatPage';
 import RaceGame from '../../components/RaceGame';
-import TimeLine from '../../components/TimeLine';
+import TimeLine from '../../components/TimeLineC';
 
 
 
