@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import styles from './TimeLine.css';
 import Line from './Item.jsx';
+import ItemHead from './ItemHead.jsx';
+import ItemEnd from './ItemEnd.jsx';
+
+
 
 class TimeLine extends Component{
 
@@ -85,9 +89,9 @@ class TimeLine extends Component{
 
 		*/}
 				
-				<Line key={'item-first'} first={true} showNext={this.showNext.bind(this)} delay={0}/>				
+				<ItemHead key={'item-first'} first={true} showNext={this.showNext.bind(this)} delay={0}/>				
 				{middleItems}		
-				<Line key={'item-last'} last={true} />
+				<ItemEnd key={'item-last'} last={true} />
 
 			</div>
 

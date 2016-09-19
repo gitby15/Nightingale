@@ -3,7 +3,7 @@ import styles from './Item.css';
 import dp from './default-props.js';
 
 
-class Item extends Component{
+class ItemEnd extends Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -49,7 +49,7 @@ class Item extends Component{
 		let containerHeight;
 		let lineDuration;
 		let fullDuration;
-		const panel = this.refs.panel;
+		//const panel = this.refs.panel;
 		const {panelMargin,lineVelocity,pointDuration} = this.props;
 
 
@@ -57,7 +57,7 @@ class Item extends Component{
 
 
 		// 0. calculate height container should be
-		containerHeight = panel.offsetHeight + 2*panelMargin;
+		containerHeight = '30px';
 
 		// 1. calculate line duration
 		lineDuration = (containerHeight/2)/lineVelocity;
@@ -96,9 +96,7 @@ class Item extends Component{
 			pointDashArray,pointOffset,
 			panelVisibility,panelScale} = this.state;
 
-		//console.log(this.props);
 		let x = pointRadius + pointWidth;
-		//console.log(pointDuration);
 		let InlineStyle = {
 			panel:{
 				
@@ -143,18 +141,13 @@ class Item extends Component{
 
 			}
 		}
-	//	console.log(this.isMount);
 
 		return(
 			<div className={styles.container}>
 			<svg className={styles.svg} width={x*2} height={containerHeight}>
-				<line stroke={lineColor} strokeWidth={lineWidth} data-timeline-position='Top' x1={x} y1='0%' x2={x} y2='50%' style={InlineStyle.lineTop}/>
-				<line stroke={lineColor} strokeWidth={lineWidth} data-timeline-position='Bottom' x1={x} y1='50%' x2={x} y2='100%' style={InlineStyle.lineBottom}/>
+				<line stroke={lineColor} strokeWidth={lineWidth} data-timeline-position='Top' x1={x} y1='0' x2={x} y2='50%' style={InlineStyle.lineBottom}/>
 				<circle fill={pointFill} stroke={pointColor} strokeWidth={pointWidth} cx={x} cy='50%' r={pointRadius} style={InlineStyle.point}/>
 			</svg>
-			<article ref='panel' className={styles.panel} style={InlineStyle.panel}>
-				{children}
-			</article>
 				
 
 			</div>
@@ -164,4 +157,4 @@ class Item extends Component{
 	}
 }
 
-module.exports = Item;
+module.exports = ItemEnd;
