@@ -2,13 +2,78 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>React Webpack Template Title</title>
+  <title>Tim's CV</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
 </head>
 <body>
-  <div id="app">APPLICATION CONTENT</div>
+  <div id="app">
+  <div id="waiting">
+    
+    <div></div>
+      <style>
+
+   #waiting{
+      margin:30vh auto;
+      width:300px;
+      position: relative;
+      
+      background: inherit;
+   }
+
+    #waiting>:first-child{
+      width:100px;
+      height: 100px;
+      margin:auto;
+      
+      border:solid pink 3px;
+      border-radius: 50%;
+      /*
+      border:3px solid transparent;
+      animation:waitingAnim 2s infinite;
+      border:solid 2px black;
+      border:solid 2px red;
+
+      */
+
+    }
+
+    #waiting>:last-child{
+      
+      position: absolute;
+      width:150px;
+      height: 100px;
+      top:0px;
+      animation:blockMove 2s infinite ease-out;
+      background: #fff;
+
+
+    }
+
+    @keyframes blockMove{
+      0%{
+        left:-50px;
+      }
+      100%{
+        left:200px;
+      }
+    }
+    body{
+      background:#fff;
+    }
+
+    
+
+
+  </style>
+    <div></div>
+  </div>
+
+
+  </div>
 
   <script>
   __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;

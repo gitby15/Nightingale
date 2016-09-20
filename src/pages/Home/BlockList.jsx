@@ -9,6 +9,16 @@ import ItemBlock from './../../components/ItemBlock';
 import RowCard from '../../layouts/RowCard';
 import FloatPage from '../../layouts/FloatPage';
 
+
+import demo from './img/demo.jpg';
+import demobg from './img/demobg.jpg';
+import other from './img/other.jpg';
+import otherbg from './img/otherbg.jpg';
+import person from './img/person.jpg';
+import personbg from './img/personbg.jpg';
+import project from './img/projects.jpg';
+import projectbg from './img/projectsbg.jpg';
+
 class BlockList extends Component{
 	constructor(props){
 		super(props);
