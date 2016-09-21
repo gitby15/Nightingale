@@ -5,7 +5,7 @@ import styles from './Person.css';
 import Banner from '../../layouts/Banner';
 import FloatPage from '../../layouts/FloatPage';
 import RaceGame from '../../components/RaceGame';
-import TimeLine from '../../components/TimeLineC';
+import TimeLine from '../../components/TimeLine';
 
 
 
@@ -47,7 +47,9 @@ class Person extends Component{
 						<div>维护公司产品，使用敏捷开发</div>
 					</TimeLine.Item>
 				</TimeLine>
+				<RaceGame />
 			</FloatPage>
+
 			
 			);
 	}

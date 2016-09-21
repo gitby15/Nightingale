@@ -2,171 +2,159 @@ import React, {Component} from 'react';
 import styles from './Item.css';
 import dp from './default-props.js';
 
-export default class ItemHead extends Component{
 
+class ItemHead extends Component{
 	constructor(props){
 		super(props);
-		this.state = {
-			lineDuration:0,
-			lineScale:0,
-			lineBottomY1:0,
-			lineBottomY2:0,
-
-			pointDashArray:0,
-			pointDashOffset:0,
-			pointX:0,
-			pointY:0,
-			pointR:0,
-
+		this.state={
+			fullDuration:0,
 			containerHeight:0,
-			fullAnimationDuration:0
-		}
+			lineDuration:0,
+			lineOffset:'70%',
+			pointOffset:0,
+			pointDashArray:0,
+			panelVisibility:'hidden',
+			panelScale:0
+		};
 	}
+
+	showThisComponent(){
+		this.setState({
+				lineOffset:'0',
+				pointOffset:'0',
+				panelVisibility:'visible',
+				panelScale:1
+			});
+	}
+
+
+
+	componentWillMount(){
+		const {pointRadius} = this.props;
+
+		let pointDashArray = pointRadius*2*Math.PI;
+		this.setState({
+			pointOffset:pointDashArray,
+			pointDashArray:pointDashArray
+		})
+
+
+	}
+
 
 	static defaultProps = dp;
 
-	componentWillMount(){
-		/*
-		calculate the point's value before first render, x,y,r,dashArray
-
-		*/
-
-		const {
-			lineVelocity,
-			pointWidth,
-			pointDuration,
-			pointRadius
-			
-		} = this.props;
-
-		let pointR = pointRadius;
-		let dashArray = Math.PI*2*pointR;
-		let dashOffset = dashArray;//don't show
-
-
-		let pointX = pointR + pointWidth;
-		let pointY = pointR + pointWidth;
-
-		let lineBottomY1,lineBottomY2,lineDuration;
-		let containerHeight,fullAnimationDuration;
-
-
-		// 1. calculate lines position
-		lineBottomY1 = pointY+pointR+pointWidth/2;
-		lineBottomY2 = lineBottomY1+pointR+pointWidth;
-
-		// 2. calculate container's size and panel's size
-		containerHeight = lineBottomY2;
-
-		
-
-		// 3. calculate animation duration time
-		lineDuration = (lineBottomY2 - lineBottomY1)/(lineVelocity);
-		fullAnimationDuration = lineDuration+pointDuration;
-		this.setState({
-			pointX:pointX,
-			pointY:pointY,
-			pointR:pointR,
-			pointDashArray:dashArray,
-
-			pointDashOffset:dashOffset,//don't show
-
-			lineScale:0,//don't show
-			lineBottomY1:lineBottomY1,
-			lineBottomY2:lineBottomY2,
-			lineDuration:lineDuration,
-
-			containerHeight:containerHeight,
-			fullAnimationDuration:fullAnimationDuration
-
-		});
-	}
-
-	componentWillReceiveProps(newProps){
-
-		if(!this.props.showComponent&&newProps.showComponent){
-			this.showComponent();
-		}
-	}
 
 	componentDidMount(){
-		
-		//this.showDom();
+		let containerHeight;
+		let lineDuration;
+		let fullDuration;
+		//const panel = this.refs.panel;
+		const {panelMargin,lineVelocity,pointDuration} = this.props;
 
 
-		this.props.emmitDelay(this.props.idx,this.state.fullAnimationDuration);
-	}
 
 
-	showComponent(){
-		/*
-			this.state.lineScale = 1,
-			this.state.pointDashOffset = 1
-		*/
+
+		// 0. calculate height container should be
+		containerHeight = '30px';
+
+		// 1. calculate line duration
+		lineDuration = (containerHeight/2)/lineVelocity;
+
+		// 3. calculate full duration time
+		fullDuration = 2*lineDuration+pointDuration;
+
+
 		this.setState({
-			lineScale:1,
-			pointDashOffset:0
-		})
+			containerHeight:containerHeight,
+			lineDuration:lineDuration,
+			fullDuration:fullDuration
+
+
+		});
+
+		this.showThisComponent();
+		
+
+
+
+
 	}
+
 
 
 
 	render(){
+		const {pointWidth,pointRadius,pointColor,pointFill,pointDuration,
+			lineColor,lineWidth,
+			children} = this.props;
 
-		const {
-			lineColor,
-			lineWidth,
-			pointDuration
-		} = this.props;
 
-		const {
-			lineDuration,
-			lineScale,
-			pointDashArray,
-			pointDashOffset,
-			pointX,
-			pointY,
-			pointR,
-			lineBottomY1,
-			lineBottomY2,
-			containerHeight,
-			//fullAnimationDuration,
+		const {lineOffset,lineDuration,
+			fullDuration,containerHeight,
+			pointDashArray,pointOffset,
+			panelVisibility,panelScale} = this.state;
 
-		} = this.state;
-
+		let x = pointRadius + pointWidth;
 		let InlineStyle = {
-			
+			panel:{
+				
+				visibility:panelVisibility,
+				transform:'scale('+panelScale+')',
+				transitionDuration:pointDuration+'ms',
+				transitionDelay:lineDuration + 'ms'
+
+				
+			},
 			lineBottom:{
-				stroke:lineColor,
-				strokeWidth:lineWidth + 'px',
-				transitionProperty:'transform',
-				transitionDelay:pointDuration+'ms',
+				
+				transitionProperty:'stroke-dashoffset',
+				transitionDelay:lineDuration+pointDuration+'ms',
 				transitionDuration:lineDuration +'ms',
-				transform:'scaleY('+lineScale+')',
-				//transitionFunction:'linear'
+				
+				transitionTimingFunction:'linear',
+				strokeDasharray:'71%',
+				strokeDashoffset:''+lineOffset
+
+			},
+			lineTop:{
+				//stroke:'red',
+				transitionProperty:'stroke-dashoffset',
+				transitionDuration:lineDuration +'ms',
+				transitionTimingFunction:'linear',
+
+				strokeDasharray:'69%',
+				strokeDashoffset:''+lineOffset
 
 			},
 			point:{
 				transitionDuration:pointDuration+'ms',
 				strokeDasharray: pointDashArray+'px',
-				strokeDashoffset: pointDashOffset,
-				transitionProperty:'stroke-dashoffset'
+				strokeDashoffset: pointOffset,
+				transitionProperty:'stroke-dashoffset',
+				transitionDelay:lineDuration+'ms',
+				//transformOrigin:pointX+' '+pointY,
+				//transform:'rotate(-90deg)'
+
+
 
 			}
 		}
 
-
-
-
 		return(
 			<div className={styles.container}>
-				<svg className={styles.svg} height={containerHeight}>
-					<line className={styles.line} x1={pointX} y1={lineBottomY1} x2={pointX} y2={lineBottomY2} style={InlineStyle.lineBottom}/>
-					<circle className={styles.point} cx={pointX} cy={pointY} r={pointR} style={InlineStyle.point}/>
-				</svg>
+			<svg className={styles.svg} width={x*2} height={containerHeight}>
+				<line stroke={lineColor} strokeWidth={lineWidth} data-timeline-position='Bottom' x1={x} y1='50%' x2={x} y2='100%' style={InlineStyle.lineBottom}/>
+				<circle fill={pointFill} stroke={pointColor} strokeWidth={pointWidth} cx={x} cy='50%' r={pointRadius} style={InlineStyle.point}/>
+			</svg>
+				
+
 			</div>
 
 
 			)
 	}
 }
+
+module.exports = ItemHead;
