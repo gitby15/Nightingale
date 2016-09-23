@@ -33,7 +33,7 @@ class Person extends Component{
 						<div>2014</div>
 						<div>参加竞赛</div>
 						<div>英特尔杯嵌入式邀请赛 | 项目负责人</div>
-						<div>全国三等奖 +　优秀毕业论文</div>
+						<div>全国三等奖 + 优秀毕业论文</div>
 					</TimeLine.Item>
 					<TimeLine.Item key={'item-4'}>
 						<div>2015</div>

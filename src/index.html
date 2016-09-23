@@ -48,12 +48,26 @@
       height: 100px;
       top:0px;
       animation:blockMove 2s infinite ease-out;
+      -webkit-animation:blockMove 2s infinite ease-out;
+
       background: #fff;
 
 
     }
 
     @keyframes blockMove{
+      0%{
+        left:-50px;
+      }
+      100%{
+        left:200px;
+      }
+    }
+    body{
+      background:#fff;
+    }
+
+    @-webkit-keyframes blockMove{
       0%{
         left:-50px;
       }
@@ -83,7 +97,7 @@
   <script type="text/javascript" src="assets/app.js"></script>
   <script type="text/javascript">
   //console.log(parent.document.getElementById('iframe').style.zIndex=1);
-  parent.document.getElementById('iframe').style.zIndex=1
+  parent.document.getElementById('iframe')&&parent.document.getElementById('iframe').style.zIndex=1
   </script>
 </body>
 </html>

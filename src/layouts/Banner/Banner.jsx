@@ -44,7 +44,7 @@ class Banner extends Component{
 			<div className={this.props.className}>
 				<div className={Banner.classArr(styles.container,styles.weight)}>
 					<div className={styles.ribbonWrapper}>
-						<Ribbon />
+						<Ribbon forkUrl={"https://github.com/gitby15"}/>
 					</div>
 					<div className={styles.infoWrapper}>
 						<Name />
